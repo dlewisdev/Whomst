@@ -29,7 +29,6 @@ jobs:
           echo "Using: $NEWEST_XCODE"
           sudo xcode-select -s "$NEWEST_XCODE"
           xcodebuild -version
-          xcrun docc --version
 
       - name: Build DocC archive
         run: |
