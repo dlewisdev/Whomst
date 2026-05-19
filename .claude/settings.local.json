@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xcodebuild -project /Users/daniellelewis/repos/CommunityKit26/CommunityKit26.xcodeproj -scheme CommunityKit26 -destination 'generic/platform=iOS Simulator' build)",
+      "WebFetch(domain:peterfriese.github.io)",
+      "WebFetch(domain:github.com)",
+      "Bash(curl -s \"https://api.github.com/search/repositories?q=Firebase-AI-Logic-Tutorial+user:peterfriese\")",
+      "Bash(curl -s \"https://api.github.com/users/peterfriese/repos?per_page=100\")",
+      "Bash(rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store' --exclude='Steps' --exclude='Tutorials' --exclude='CLAUDE.md' CommunityKit26.xcodeproj CommunityKit26 Steps/00-Starter/)",
+      "Bash(rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store' --exclude='Steps' --exclude='Tutorials' --exclude='CLAUDE.md' CommunityKit26.xcodeproj CommunityKit26 Steps/01-VoiceOver-Labelling/Starter/)",
+      "Bash(rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store' --exclude='Steps' --exclude='Tutorials' --exclude='CLAUDE.md' CommunityKit26.xcodeproj CommunityKit26 Steps/01-VoiceOver-Labelling/Finished/)",
+      "Bash(rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store' --exclude='Steps' --exclude='Tutorials' --exclude='CLAUDE.md' CommunityKit26.xcodeproj CommunityKit26 Steps/02-VoiceOver-Grouping/Starter/)",
+      "Bash(rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store' --exclude='Steps' --exclude='Tutorials' --exclude='CLAUDE.md' CommunityKit26.xcodeproj CommunityKit26 Steps/02-VoiceOver-Grouping/Finished/)",
+      "Bash(rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store' --exclude='Steps' --exclude='Tutorials' --exclude='CLAUDE.md' CommunityKit26.xcodeproj CommunityKit26 Steps/03-VoiceOver-Sequencing/Starter/)",
+      "Bash(rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store' --exclude='Steps' --exclude='Tutorials' --exclude='CLAUDE.md' CommunityKit26.xcodeproj CommunityKit26 Steps/03-VoiceOver-Sequencing/Finished/)",
+      "Bash(rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store' --exclude='Steps' --exclude='Tutorials' --exclude='CLAUDE.md' CommunityKit26.xcodeproj CommunityKit26 Steps/04-DynamicType-AdaptiveLayout/Starter/)",
+      "Bash(rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store' --exclude='Steps' --exclude='Tutorials' --exclude='CLAUDE.md' CommunityKit26.xcodeproj CommunityKit26 Steps/04-DynamicType-AdaptiveLayout/Finished/)",
+      "Bash(rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store' --exclude='Steps' --exclude='Tutorials' --exclude='CLAUDE.md' CommunityKit26.xcodeproj CommunityKit26 Steps/05-DynamicType-ScaledMetric/Starter/)",
+      "Bash(rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store' --exclude='Steps' --exclude='Tutorials' --exclude='CLAUDE.md' CommunityKit26.xcodeproj CommunityKit26 Steps/05-DynamicType-ScaledMetric/Finished/)",
+      "Bash(rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store' --exclude='Steps' --exclude='Tutorials' --exclude='CLAUDE.md' CommunityKit26.xcodeproj CommunityKit26 Steps/06-DynamicType-SemanticStyles/Starter/)",
+      "Bash(rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store' --exclude='Steps' --exclude='Tutorials' --exclude='CLAUDE.md' CommunityKit26.xcodeproj CommunityKit26 Steps/06-DynamicType-SemanticStyles/Finished/)",
+      "Bash(rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store' --exclude='Steps' --exclude='Tutorials' --exclude='CLAUDE.md' CommunityKit26.xcodeproj CommunityKit26 Steps/07-Differentiation-BeyondColor/Starter/)",
+      "Bash(rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store' --exclude='Steps' --exclude='Tutorials' --exclude='CLAUDE.md' CommunityKit26.xcodeproj CommunityKit26 Steps/07-Differentiation-BeyondColor/Finished/)",
+      "Bash(xcrun simctl *)",
+      "Bash(open -a Simulator)",
+      "Bash(xcodebuild -project /Users/daniellelewis/repos/CommunityKit26/CommunityKit26.xcodeproj -scheme CommunityKit26 -destination 'id=AAA4DBEC-29A9-4301-8ECF-E713FD7EAE01' -derivedDataPath /tmp/ckit-final-build build)",
+      "Bash(xcodebuild -project /Users/daniellelewis/repos/CommunityKit26/CommunityKit26.xcodeproj -scheme CommunityKit26 -destination 'id=310B6D1E-7D60-4990-A7C0-8A47D9FF8AA8' -derivedDataPath /tmp/ckit-final-build build)",
+      "Bash(xcodebuild -project /Users/daniellelewis/repos/CommunityKit26/Steps/00-Starter/CommunityKit26.xcodeproj -scheme CommunityKit26 -destination 'id=310B6D1E-7D60-4990-A7C0-8A47D9FF8AA8' -derivedDataPath /tmp/ckit-starter-build build)",
+      "Bash(xcodebuild -project /Users/daniellelewis/repos/CommunityKit26/Steps/__TRACKED_VAR__/Finished/CommunityKit26.xcodeproj -scheme CommunityKit26 -destination id=310B6D1E-7D60-4990-A7C0-8A47D9FF8AA8 -derivedDataPath /tmp/ckit-step-__TRACKED_VAR__ build)",
+      "Bash(xcodebuild -project /Users/daniellelewis/repos/CommunityKit26/Steps/__TRACKED_VAR__/Starter/CommunityKit26.xcodeproj -scheme CommunityKit26 -destination id=310B6D1E-7D60-4990-A7C0-8A47D9FF8AA8 -derivedDataPath /tmp/ckit-starter-__TRACKED_VAR__ build)"
+    ]
+  }
+}

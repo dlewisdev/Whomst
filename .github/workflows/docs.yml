@@ -1,0 +1,61 @@
+name: Publish DocC tutorial
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_26.app
+
+      - name: Build DocC archive
+        run: |
+          xcrun docc convert Tutorials/CommunityKit26.docc \
+            --output-path _site \
+            --hosting-base-path CommunityKit26 \
+            --transform-for-static-hosting
+
+      - name: Add index redirect to tutorial table of contents
+        run: |
+          cat > _site/index.html <<'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <meta http-equiv="refresh" content="0; url=/CommunityKit26/tutorials/communitykit26">
+            <title>CommunityKit Accessibility Workshop</title>
+          </head>
+          <body>
+            <p>Redirecting to the <a href="/CommunityKit26/tutorials/communitykit26">CommunityKit Accessibility Workshop</a>…</p>
+          </body>
+          </html>
+          EOF
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
