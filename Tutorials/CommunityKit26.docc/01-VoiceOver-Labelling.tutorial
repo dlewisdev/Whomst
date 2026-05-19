@@ -1,0 +1,102 @@
+@Tutorial(time: 10) {
+    @Intro(title: "VoiceOver: Labelling") {
+        VoiceOver reads the screen out loud. When it lands on a button with just an icon and no label, it announces something useless like "Star, button" — or worse, nothing at all. In this step you'll add a clear, action-oriented label to every icon-only control in the app.
+
+        @Image(source: 01-intro.png, alt: "A contact row with a star button highlighted, and the VoiceOver announcement shown as 'Star, button'.")
+    }
+
+    @Section(title: "Open the starter project") {
+        @ContentAndMedia {
+            Start from the `Steps/01-VoiceOver-Labelling/Starter/` snapshot. This is the original delightful-but-inaccessible app. Run it on a simulator with VoiceOver on (⌘ + Option + F5 in the simulator, or triple-click side button on a real device).
+
+            Tap around the contact list and detail screens with VoiceOver. Notice how every icon-only button — the star, the floating plus, the call/email/LinkedIn buttons, the edit pencil — gets announced as something generic like "Star, button" or just "Button". Users have no idea what those buttons do.
+
+            @Image(source: 01-starter-screenshot.png, alt: "The CommunityKit starter app's contact detail screen with four colorful round icon buttons.")
+        }
+
+        @Steps {
+            @Step {
+                Open `Steps/01-VoiceOver-Labelling/Starter/CommunityKit26.xcodeproj` in Xcode.
+
+                @Image(source: 01-open-project.png, alt: "Xcode showing the CommunityKit26 project navigator with Models, Views, and Components folders.")
+            }
+
+            @Step {
+                Build and run on an iPhone simulator. Enable VoiceOver via Simulator → Features → Toggle VoiceOver, or by pressing ⌘ + Option + F5.
+
+                @Image(source: 01-voiceover-on.png, alt: "The iOS Simulator with VoiceOver enabled, highlighting the favorite star icon.")
+            }
+        }
+    }
+
+    @Section(title: "Label the favorite star") {
+        @ContentAndMedia {
+            Every contact row has a star button on the right side. Without a label, VoiceOver announces it as just "Star, button" — which doesn't tell the user whose favorite they'd be toggling.
+
+            The fix is `.accessibilityLabel`. Compose the label dynamically using the contact's name so VoiceOver announces *"Favorite Maya Chen"* or *"Unfavorite Diego Ramirez"* depending on the current state.
+
+            @Image(source: 01-star-label.png, alt: "A diagram showing the star button with two VoiceOver announcements: before ('Star, button') and after ('Favorite Maya Chen, button').")
+        }
+
+        @Steps {
+            @Step {
+                Open `Views/ContactRowView.swift` and find the favorite `Button` at the end of the outer `HStack`.
+
+                @Code(name: "ContactRowView.swift", file: 01-star-before.swift)
+            }
+
+            @Step {
+                Add `.accessibilityLabel` after `.buttonStyle(.plain)`. Use a ternary on `contact.isFavorite` to swap between "Favorite" and "Unfavorite" wording.
+
+                @Code(name: "ContactRowView.swift", file: 01-star-after.swift, previousFile: 01-star-before.swift)
+            }
+        }
+    }
+
+    @Section(title: "Label every other icon-only control") {
+        @ContentAndMedia {
+            Apply the same pattern everywhere there's an icon without text:
+
+            - The floating **plus** button on the contact list
+            - The **star** and **pencil** buttons in the contact detail toolbar
+            - The **call**, **email**, **LinkedIn**, and **share** buttons in the action row
+            - The decorative **calendar** SF Symbol next to the conference date — this one gets `.accessibilityHidden(true)` instead, because the text right next to it already conveys the meaning
+
+            The principle: every interactive control needs a label that describes the **action** it performs. Purely decorative imagery should be hidden so VoiceOver doesn't waste users' time announcing it.
+
+            @Image(source: 01-all-labels.png, alt: "The contact detail screen with all icon buttons highlighted and their VoiceOver labels shown as captions.")
+        }
+
+        @Steps {
+            @Step {
+                In `ContactListView.swift`, find `addButton` and add `.accessibilityLabel("Add new contact")` plus an `.accessibilityHint` describing what tapping it does.
+
+                @Code(name: "ContactListView.swift", file: 01-fab-after.swift, previousFile: 01-fab-before.swift)
+            }
+
+            @Step {
+                In `ContactDetailView.swift`, update the `actionButton` helper to take a `label` parameter, and pass a contact-specific label at each call site ("Call Maya Chen", "Email Maya Chen", etc.).
+
+                @Code(name: "ContactDetailView.swift", file: 01-actions-after.swift, previousFile: 01-actions-before.swift)
+            }
+
+            @Step {
+                Mark the decorative calendar icon in `ContactRowView.swift` as hidden — the conference name and date text right next to it already convey everything VoiceOver needs.
+
+                @Code(name: "ContactRowView.swift", file: 01-calendar-after.swift, previousFile: 01-calendar-before.swift)
+            }
+        }
+    }
+
+    @Section(title: "Verify with VoiceOver") {
+        @ContentAndMedia {
+            Run the app again with VoiceOver on. Sweep through the contact list and a detail screen.
+
+            Every button should now announce a clear, action-oriented label that includes the relevant context (the contact name where applicable). Decorative icons are silent. You haven't fixed everything yet — the row still reads as five or six separate elements per contact — but every individual element is now intelligible.
+
+            The finished snapshot lives in `Steps/01-VoiceOver-Labelling/Finished/`.
+
+            @Image(source: 01-verify.png, alt: "VoiceOver announcing 'Favorite Maya Chen, button' on the contact row.")
+        }
+    }
+}

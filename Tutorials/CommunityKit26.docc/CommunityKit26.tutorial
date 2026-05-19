@@ -1,0 +1,51 @@
+@Tutorials(name: "CommunityKit") {
+    @Intro(title: "Build an Accessible Conference Networking App") {
+        CommunityKit is a small SwiftUI app for keeping track of the people you meet at developer conferences. It looks great — but if you fire up VoiceOver, crank Dynamic Type to AX5, or enable color filters, the experience falls apart fast.
+
+        In this workshop you'll take a beautifully designed but inaccessible starter app and apply the seven most impactful accessibility techniques in SwiftUI, one focused step at a time. By the end, the same app will be just as delightful for users who rely on assistive technologies as it is for everyone else.
+
+        @Image(source: hero-banner.png, alt: "The CommunityKit app showing a list of conference contacts with avatars, names, role tags, and conference badges.")
+    }
+
+    @Chapter(name: "VoiceOver") {
+        VoiceOver is Apple's screen reader. A great VoiceOver experience comes from three layered fixes: labelling individual elements, grouping related elements into one announcement, and sequencing those announcements in the most useful order.
+
+        @Image(source: chapter-voiceover.png, alt: "An iPhone with VoiceOver focus rectangle around a contact row.")
+
+        @TutorialReference(tutorial: "doc:01-VoiceOver-Labelling")
+        @TutorialReference(tutorial: "doc:02-VoiceOver-Grouping")
+        @TutorialReference(tutorial: "doc:03-VoiceOver-Sequencing")
+    }
+
+    @Chapter(name: "Dynamic Type") {
+        Dynamic Type lets users scale text up or down system-wide. Apps that respect it adapt their layout, scale their visual elements, and use semantic text styles instead of hardcoded sizes.
+
+        @Image(source: chapter-dynamictype.png, alt: "Two iPhones side by side showing the same screen at default and AX5 Dynamic Type sizes.")
+
+        @TutorialReference(tutorial: "doc:04-DynamicType-AdaptiveLayout")
+        @TutorialReference(tutorial: "doc:05-DynamicType-ScaledMetric")
+        @TutorialReference(tutorial: "doc:06-DynamicType-SemanticStyles")
+    }
+
+    @Chapter(name: "Differentiation Beyond Color") {
+        Roughly 1 in 12 men and 1 in 200 women have some form of color vision deficiency. If your UI communicates state, category, or selection through color alone, you're hiding information from those users. Add shape, weight, or icon cues alongside color.
+
+        @Image(source: chapter-differentiation.png, alt: "Two versions of the same tag pills row: one using color only, one using icons and color together.")
+
+        @TutorialReference(tutorial: "doc:07-Differentiation-BeyondColor")
+    }
+
+    @Resources {
+        @Documentation(destination: "https://developer.apple.com/documentation/accessibility") {
+            Apple's Accessibility documentation.
+        }
+
+        @SampleCode(destination: "https://github.com/daniellelewis/CommunityKit26") {
+            The completed sample project, with starter and finished snapshots for every step.
+        }
+
+        @Videos(destination: "https://developer.apple.com/videos/accessibility/") {
+            WWDC sessions on accessibility, VoiceOver, and Dynamic Type.
+        }
+    }
+}
