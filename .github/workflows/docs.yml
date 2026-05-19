@@ -20,8 +20,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_26.app
+      - name: Select latest Xcode
+        run: |
+          NEWEST_XCODE=$(ls -d /Applications/Xcode_*.app 2>/dev/null | sort -V | tail -1)
+          if [ -z "$NEWEST_XCODE" ]; then
+            NEWEST_XCODE=/Applications/Xcode.app
+          fi
+          echo "Using: $NEWEST_XCODE"
+          sudo xcode-select -s "$NEWEST_XCODE"
+          xcodebuild -version
+          xcrun docc --version
 
       - name: Build DocC archive
         run: |
