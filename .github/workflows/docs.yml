@@ -32,9 +32,9 @@ jobs:
 
       - name: Build DocC archive
         run: |
-          xcrun docc convert Tutorials/CommunityKit26.docc \
+          xcrun docc convert Tutorials/Whomst.docc \
             --output-path _site \
-            --hosting-base-path CommunityKit26 \
+            --hosting-base-path Whomst \
             --transform-for-static-hosting
 
       - name: Add index redirect to tutorial table of contents
@@ -44,11 +44,11 @@ jobs:
           <html>
           <head>
             <meta charset="utf-8">
-            <meta http-equiv="refresh" content="0; url=/CommunityKit26/tutorials/communitykit26">
-            <title>CommunityKit Accessibility Workshop</title>
+            <meta http-equiv="refresh" content="0; url=/Whomst/tutorials/whomst">
+            <title>Whomst Accessibility Workshop</title>
           </head>
           <body>
-            <p>Redirecting to the <a href="/CommunityKit26/tutorials/communitykit26">CommunityKit Accessibility Workshop</a>…</p>
+            <p>Redirecting to the <a href="/Whomst/tutorials/whomst">Whomst Accessibility Workshop</a>…</p>
           </body>
           </html>
           EOF

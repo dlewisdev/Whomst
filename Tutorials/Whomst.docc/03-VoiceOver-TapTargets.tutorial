@@ -1,0 +1,80 @@
+@Tutorial(time: 8) {
+    @Intro(title: "VoiceOver: Tap Targets") {
+        After Steps 1 and 2 every control announces with a clear label and short Voice Control input names. But the contact list itself is still broken in a way that doesn't show up in inspection — it navigates via `.onTapGesture`, which means VoiceOver gets no signal that the row is interactive. The user sees a sea of individually-focusable text and image elements with no "Button" trait, no "double-tap to activate" hint, and no way to trigger the navigation a sighted user takes for granted.
+
+        @Image(source: 03-intro.png, alt: "A contact row in VoiceOver, with focus rectangles around every individual child element — avatar, name, follow-up dot, role, company, conference, each tag, the star — and no surrounding 'Button' indicator to suggest the row navigates anywhere.")
+    }
+
+    @Section(title: "Why `.onTapGesture` is invisible to VoiceOver") {
+        @ContentAndMedia {
+            `.onTapGesture` registers a closure for sighted touch input. VoiceOver doesn't surface it as an action because — from the assistive technology's perspective — there's no element that announces itself as actionable. The row's children come through individually, but none of them are tappable, and the row's parent isn't a button. A VoiceOver user can swipe past every element of a row without ever discovering they're inside a navigation control.
+
+            `NavigationLink` is the semantic primitive for "this view navigates somewhere." When SwiftUI sees one in a `NavigationStack`, it automatically:
+
+            - Adds the `.isButton` accessibility trait so VoiceOver announces "Button" along with the row's label.
+            - Adds the standard activation hint — VoiceOver speaks "Double-tap to activate."
+            - Combines the children into a single focus stop, so the user swipes once per row instead of once per element.
+            - Hands activation off to the `navigationDestination(for:)` modifier on the enclosing stack.
+
+            None of that is opt-in. You get it by using the right SwiftUI primitive. The fix in this step is mechanical — *unwrap* the tap gesture and put `NavigationLink` back where it belongs.
+
+            @Image(source: 03-link-vs-tap.png, alt: "A two-column comparison: the left column shows the .onTapGesture version with seven separate VoiceOver focus stops per row and no Button trait; the right shows the NavigationLink version with one focus stop, a Button trait, and a 'Double-tap to activate' hint.")
+        }
+    }
+
+    @Section(title: "Wrap the row in `NavigationLink`") {
+        @ContentAndMedia {
+            The row currently sits directly inside the `ForEach`, with `.contentShape(.rect)` and `.onTapGesture` doing the navigation. Wrap `ContactRowView(...)` in a value-based `NavigationLink` instead — the row becomes the link's *label content*, and the navigation value is the `Contact` itself. Apply `.buttonStyle(.plain)` so the link doesn't pick up the system's blue tint and capsule highlight.
+
+            @Image(source: 03-row-wrap.png, alt: "A diff view: the ContactRowView is moved inside a NavigationLink(value: contact) { ... } closure, and the .contentShape(.rect) + .onTapGesture modifiers are removed.")
+        }
+
+        @Steps {
+            @Step {
+                Find the `ForEach(filteredContacts)` in `ContactListView.swift`. The row is followed by `.contentShape(.rect)` and `.onTapGesture { selectedContact = contact }`.
+
+                @Code(name: "ContactListView.swift", file: 03-row-before.swift)
+            }
+
+            @Step {
+                Wrap `ContactRowView(...)` in `NavigationLink(value: contact) { ... }` and chain `.buttonStyle(.plain)` on the link itself. Delete `.contentShape(.rect)` and `.onTapGesture` — `NavigationLink` is what registers the activation now.
+
+                @Code(name: "ContactListView.swift", file: 03-row-after.swift, previousFile: 03-row-before.swift)
+            }
+        }
+    }
+
+    @Section(title: "Restore the typed navigation destination") {
+        @ContentAndMedia {
+            With `NavigationLink` emitting `Contact` values into the stack, the destination modifier needs to switch from item-binding to type-based handling. The `@State private var selectedContact: Contact?` is no longer needed — `NavigationStack` owns the navigation state once the link drives it.
+
+            @Image(source: 03-destination.png, alt: "A diff view: the @State private var selectedContact line is deleted; .navigationDestination(item: $selectedContact) is replaced with .navigationDestination(for: Contact.self).")
+        }
+
+        @Steps {
+            @Step {
+                Locate the `@State private var selectedContact: Contact?` near the other `@State` declarations, and the `.navigationDestination(item: $selectedContact)` modifier on the body's `ZStack`.
+
+                @Code(name: "ContactListView.swift", file: 03-cleanup-before.swift)
+            }
+
+            @Step {
+                Delete the `selectedContact` `@State` line. Change `.navigationDestination(item: $selectedContact)` to `.navigationDestination(for: Contact.self)` — `NavigationStack` will route the value the link emits.
+
+                @Code(name: "ContactListView.swift", file: 03-cleanup-after.swift, previousFile: 03-cleanup-before.swift)
+            }
+        }
+    }
+
+    @Section(title: "Verify with VoiceOver") {
+        @ContentAndMedia {
+            Run with VoiceOver and swipe through the list. Each row is now a single focus stop announced as a Button — the trait that drives "Double-tap to activate." Double-tapping navigates to the detail screen, just like the sighted tap does.
+
+            The combined label is still the default child concatenation, with the most important information ("Needs follow-up", "Favorited") buried at the end. That's what Step 4 (Grouping) addresses by composing an explicit `.accessibilityLabel`. For now, the *interaction* is fixed even if the *announcement* still needs work.
+
+            The finished snapshot lives in `Steps/03-VoiceOver-TapTargets/Finished/`.
+
+            @Image(source: 03-verify.png, alt: "A VoiceOver focus rectangle around an entire contact row, with the 'Button' trait announced and the 'Double-tap to activate' hint visible in the focus banner.")
+        }
+    }
+}
