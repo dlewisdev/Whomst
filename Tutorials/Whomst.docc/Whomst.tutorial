@@ -42,7 +42,7 @@
             Apple's Accessibility documentation.
         }
 
-        @SampleCode(destination: "https://github.com/daniellelewis/Whomst") {
+        @SampleCode(destination: "https://github.com/dlewisdev/Whomst") {
             The completed sample project, with starter and finished snapshots for every step.
         }
 
