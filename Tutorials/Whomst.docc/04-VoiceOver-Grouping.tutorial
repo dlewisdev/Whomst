@@ -1,4 +1,4 @@
-@Tutorial(time: 10) {
+@Tutorial(time: 20) {
     @Intro(title: "VoiceOver: Grouping") {
         Every contact row in the list contains seven separate pieces of information: avatar, name, follow-up dot, role, company, conference, date, and tags. After Step 1, each one announces correctly — but VoiceOver users still have to swipe through every single one to get past one contact. With twelve contacts that's almost 100 swipes to reach the bottom.
 

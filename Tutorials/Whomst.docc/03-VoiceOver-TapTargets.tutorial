@@ -1,4 +1,4 @@
-@Tutorial(time: 8) {
+@Tutorial(time: 15) {
     @Intro(title: "VoiceOver: Tap Targets") {
         After Steps 1 and 2 every control announces with a clear label and short Voice Control input names. But the contact list itself is still broken in a way that doesn't show up in inspection — it navigates via `.onTapGesture`, which means VoiceOver gets no signal that the row is interactive. The user sees a sea of individually-focusable text and image elements with no "Button" trait, no "double-tap to activate" hint, and no way to trigger the navigation a sighted user takes for granted.
 

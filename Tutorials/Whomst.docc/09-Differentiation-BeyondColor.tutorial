@@ -1,4 +1,4 @@
-@Tutorial(time: 12) {
+@Tutorial(time: 15) {
     @Intro(title: "Differentiation Beyond Color") {
         Three places in the starter rely on color alone to communicate meaning:
 

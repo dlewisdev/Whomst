@@ -1,4 +1,4 @@
-@Tutorial(time: 10) {
+@Tutorial(time: 25) {
     @Intro(title: "Dynamic Type: Adaptive Layout") {
         Crank Dynamic Type up to AX5 in Settings → Accessibility → Display & Text Size → Larger Text. The contact row's avatar gets pushed off-screen by the role and company text, tags overflow into a single truncated mess, and the favorite button collapses against the edge. Horizontal layouts that worked at default size break under accessibility-size text.
 

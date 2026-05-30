@@ -1,4 +1,4 @@
-@Tutorial(time: 8) {
+@Tutorial(time: 15) {
     @Intro(title: "Voice Control: Input Labels") {
         Voice Control lets users interact with the app by speaking — "Tap Favorite Maya Chen," "Tap Add new contact." The labels you wrote in Step 1 work, but the verbose VoiceOver-friendly phrasing makes for awkward spoken commands. With twelve favourites in the list, "Tap Favorite Maya Chen" is a lot to say just to toggle one star.
 

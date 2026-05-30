@@ -56,7 +56,7 @@ When evolving a step, edit `Whomst/` (the live final), then re-snapshot affected
 
 ## DocC tutorial
 
-`Tutorials/Whomst.docc/` is a standalone catalog (not part of the app target) with one `.tutorial` file per step plus a `Whomst.tutorial` table of contents organized into three chapters (VoiceOver & Voice Control, Dynamic Type, Differentiation). Estimated time per step: 8–12 minutes; ~86 min total.
+`Tutorials/Whomst.docc/` is a standalone catalog (not part of the app target) with one `.tutorial` file per step plus a `Whomst.tutorial` table of contents organized into three chapters (VoiceOver & Voice Control, Dynamic Type, Differentiation). Estimated time per step: 15–25 minutes; 2.5 hours (150 min) total.
 
 `Resources/code/` holds 51 focused `.swift` snippet files (`01-star-before.swift`, `01-star-after.swift`, etc.) referenced from `@Code(file:)` directives. **These snippets are intentionally non-compiling fragments** — they show only the relevant chunk of a view body or function, with no imports or surrounding type. Claude Code's SourceKit diagnostic system will lint every snippet file as broken Swift; that noise is harmless. The Xcode build target excludes `Tutorials/` entirely, so the snippets never affect the app build.
 

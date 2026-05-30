@@ -1,4 +1,4 @@
-@Tutorial(time: 10) {
+@Tutorial(time: 15) {
     @Intro(title: "VoiceOver: Labelling") {
         VoiceOver reads the screen out loud. When it lands on a button with just an icon and no label, it announces something useless like "Star, button" — or worse, nothing at all. In this step you'll add a clear, action-oriented label to every icon-only control in the app.
 

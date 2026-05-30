@@ -1,4 +1,4 @@
-@Tutorial(time: 10) {
+@Tutorial(time: 15) {
     @Intro(title: "VoiceOver: Sequencing") {
         With elements labelled and grouped, the third VoiceOver concern is the order in which they're announced. Visual order doesn't always match cognitive importance. In a contact list, "needs follow-up" is one of the most important pieces of information — but in source order it comes last in the row, after role, company, conference, and tags. By the time VoiceOver gets there, the user has already moved on.
 

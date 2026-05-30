@@ -1,4 +1,4 @@
-@Tutorial(time: 8) {
+@Tutorial(time: 15) {
     @Intro(title: "Dynamic Type: @ScaledMetric") {
         Even after Step 6 fixed the layout, one thing still looks off at AX5: the 56-point avatar circle next to a wall of huge text looks tiny and out of proportion. Same with the 60-point floating Add button — it shrinks visually relative to the text around it, even though its pixel size didn't change.
 

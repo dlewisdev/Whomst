@@ -1,4 +1,4 @@
-@Tutorial(time: 8) {
+@Tutorial(time: 15) {
     @Intro(title: "Dynamic Type: Semantic Text Styles") {
         Everywhere in the starter you'll see fonts like `.font(.system(size: 16, weight: .semibold))`. Those literal sizes don't scale with Dynamic Type — they're frozen at 16 points regardless of the user's preference. The user can drag the size slider all the way up and the text won't budge.
 
