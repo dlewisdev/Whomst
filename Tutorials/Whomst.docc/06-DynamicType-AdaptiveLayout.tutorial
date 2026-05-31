@@ -90,7 +90,7 @@
 
             The finished snapshot lives in `Steps/06-DynamicType-AdaptiveLayout/Finished/`.
 
-            @Image(source: 06-verify.png, alt: "The contact list at AX5 Dynamic Type: every row readable in the vertical accessibility layout with no clipped content.")
+            @Image(source: 06-verify.png, alt: "Two screenshots side by side at an accessibility Dynamic Type size: on the left the contact list in its vertical layout, on the right the contact detail page in its vertical layout — both readable with no clipped content.")
         }
     }
 }
