@@ -62,7 +62,7 @@
 
             Also add the `.isSelected` accessibility trait so VoiceOver announces the state alongside the label.
 
-            @Image(source: 09-filter.png, alt: "Four filter chips: 'All' selected with a checkmark, bold text, stroke, and shadow; 'Favorites', 'Follow-up', and 'Recent' shown unselected with thin strokes.")
+            @Image(source: 09-filter.png, alt: "Four filter chips: 'Follow-up' selected with a checkmark, bold text, stroke, and shadow; 'All', 'Favorites', and 'Recent' shown unselected with thin strokes.")
         }
 
         @Steps {
