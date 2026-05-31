@@ -76,7 +76,7 @@
 
             The finished snapshot lives in `Steps/08-DynamicType-SemanticStyles/Finished/`.
 
-            @Video(source: 08-verify.mp4, poster: 08-verify-poster.png, alt: "Screen recording: dragging the Dynamic Type slider while all text scales consistently through the semantic styles, with no fixed-size text left behind.")
+            @Video(source: 08-verify.mp4, alt: "Screen recording: dragging the Dynamic Type slider while all text scales consistently through the semantic styles, with no fixed-size text left behind.")
         }
     }
 }

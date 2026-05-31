@@ -71,7 +71,7 @@
 
             The finished snapshot lives in `Steps/03-VoiceOver-TapTargets/Finished/`.
 
-            @Video(source: 03-verify.mp4, poster: 03-verify-poster.png, alt: "Screen recording: VoiceOver focuses an entire contact row announced as a Button with the 'Double-tap to activate' hint, then a double-tap navigates to the detail screen.")
+            @Video(source: 03-verify.mp4, poster: 03-verify-poster.png, alt: "The simulator's contact list beside the Accessibility Inspector, a contact row selected as a single element whose combined label ends in 'Button'. Play to see a double-tap navigate to the detail screen.")
         }
     }
 }

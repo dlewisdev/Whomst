@@ -84,7 +84,7 @@
 
             The finished snapshot lives in `Steps/04-VoiceOver-Grouping/Finished/`.
 
-            @Video(source: 04-verify.mp4, poster: 04-verify-poster.png, alt: "Screen recording: VoiceOver focuses a contact row as a single stop and reads the full composed announcement in one pass, then a swipe up reveals the 'Unfavorite' custom action.")
+            @Video(source: 04-verify.mp4, poster: 04-verify-poster.png, alt: "A contact row focused by VoiceOver with the caption panel reading the full composed announcement beginning 'Sam Reilly. Developer Advocate at Vapor. Met at iOSDevHH…'. Play to hear it read in one pass and reveal the 'Unfavorite' custom action.")
         }
     }
 }

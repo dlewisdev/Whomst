@@ -58,7 +58,7 @@
 
             The finished snapshot lives in `Steps/05-VoiceOver-Sequencing/Finished/`.
 
-            @Video(source: 05-verify.mp4, poster: 05-verify-poster.png, alt: "Screen recording: with VoiceOver on, the first swipe from the navigation title lands on the floating add button announced 'Add new contact, button', before the filter chips and list.")
+            @Video(source: 05-verify.mp4, poster: 05-verify-poster.png, alt: "The floating add button focused by VoiceOver with the caption panel reading 'Add new contact, button, Opens a form to add someone you've met'. Play to see it reached first, before the filter chips and list.")
         }
     }
 }

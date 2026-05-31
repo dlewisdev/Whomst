@@ -64,7 +64,7 @@
 
             The principle: every interactive control needs a label that describes the **action** it performs. Purely decorative imagery should be hidden so VoiceOver doesn't waste users' time announcing it.
 
-            @Video(source: 01-all-labels.mp4, poster: 01-all-labels-poster.png, alt: "Screen recording stepping through the contact detail screen's icon buttons, the Accessibility Inspector revealing each control's accessibility label in turn — Favorite, Edit, Call, Email, LinkedIn, and Share.")
+            @Video(source: 01-all-labels.mp4, poster: 01-all-labels-poster.png, alt: "A contact detail screen beside the Accessibility Inspector, the inspector focused on the Call button showing Label 'Call' and identifier 'phone.fill'. Play to step through every icon button's label.")
         }
 
         @Steps {
@@ -96,7 +96,7 @@
 
             The finished snapshot lives in `Steps/01-VoiceOver-Labelling/Finished/`.
 
-            @Video(source: 01-verify.mp4, poster: 01-verify-poster.png, alt: "Screen recording: the simulator beside the Accessibility Inspector, the inspector showing a contact row's star with Element 'Favorite Maya Chen, Button'.")
+            @Video(source: 01-verify.mp4, poster: 01-verify-poster.png, alt: "The simulator's contact list beside the Accessibility Inspector, the inspector showing a row's star with Element 'Favorite Maya Chen, Button'.")
         }
     }
 }

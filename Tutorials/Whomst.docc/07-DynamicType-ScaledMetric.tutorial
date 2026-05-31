@@ -65,7 +65,7 @@
 
             The finished snapshot lives in `Steps/07-DynamicType-ScaledMetric/Finished/`.
 
-            @Video(source: 07-verify.mp4, poster: 07-verify-poster.png, alt: "Screen recording: dragging the Dynamic Type slider while the avatar and floating button grow proportionally with the text.")
+            @Video(source: 07-verify.mp4, poster: 07-verify-poster.png, alt: "A contact screen at an enlarged Dynamic Type size with a large avatar and a large floating add button, both scaled up with the text. Play to see them grow as the Dynamic Type slider is dragged.")
         }
     }
 }
