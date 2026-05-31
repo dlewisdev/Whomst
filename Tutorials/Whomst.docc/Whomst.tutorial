@@ -9,8 +9,6 @@
     @Chapter(name: "VoiceOver & Voice Control") {
         VoiceOver is Apple's screen reader; Voice Control is its spoken-command counterpart. Both are driven by the same labels — and the same SwiftUI primitives — that you attach in code. A great experience for either one comes from five layered fixes: labelling individual elements, giving them short input names users can speak, surfacing tappable regions as proper navigation targets so assistive tech recognises them as actionable, grouping related elements into a single announcement, and sequencing those announcements in the most useful order.
 
-        @Image(source: chapter-voiceover.png, alt: "An iPhone with VoiceOver focus rectangle around a contact row.")
-
         @TutorialReference(tutorial: "doc:01-VoiceOver-Labelling")
         @TutorialReference(tutorial: "doc:02-VoiceControl-InputLabels")
         @TutorialReference(tutorial: "doc:03-VoiceOver-TapTargets")
@@ -21,8 +19,6 @@
     @Chapter(name: "Dynamic Type") {
         Dynamic Type lets users scale text up or down system-wide. Apps that respect it adapt their layout, scale their visual elements, and use semantic text styles instead of hardcoded sizes.
 
-        @Image(source: chapter-dynamictype.png, alt: "Two iPhones side by side showing the same screen at default and AX5 Dynamic Type sizes.")
-
         @TutorialReference(tutorial: "doc:06-DynamicType-AdaptiveLayout")
         @TutorialReference(tutorial: "doc:07-DynamicType-ScaledMetric")
         @TutorialReference(tutorial: "doc:08-DynamicType-SemanticStyles")
@@ -30,8 +26,6 @@
 
     @Chapter(name: "Differentiation Beyond Color") {
         Roughly 1 in 12 men and 1 in 200 women have some form of color vision deficiency. If your UI communicates state, category, or selection through color alone, you're hiding information from those users. Add shape, weight, or icon cues alongside color.
-
-        @Image(source: chapter-differentiation.png, alt: "Two versions of the same tag pills row: one using color only, one using icons and color together.")
 
         @TutorialReference(tutorial: "doc:09-Differentiation-BeyondColor")
     }

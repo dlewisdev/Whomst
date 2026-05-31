@@ -4,7 +4,7 @@
 
         `.accessibilityInputLabels(_:)` accepts an array of short alternative spoken names for a control. Voice Control matches any of them: "Tap Favorite," "Tap Star," even "Tap Maya" all hit the same button.
 
-        @Video(source: 02-intro.mp4, poster: 02-intro-poster.png, alt: "Screen recording: Voice Control's 'Show Names' overlay appears over the contact list, labelling each control with a short spoken name instead of a long VoiceOver label.")
+        @Video(source: 02-intro.mp4, poster: 02-intro-poster.png, alt: "The contact list with Voice Control's 'Show Names' overlay showing short spoken-name badges over each control. Play to see the overlay appear.")
     }
 
     @Section(title: "Two labels, two audiences") {
