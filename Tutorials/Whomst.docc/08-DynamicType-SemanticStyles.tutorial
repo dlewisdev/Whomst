@@ -45,6 +45,12 @@
 
                 @Code(name: "ContactDetailView.swift", file: 08-detail-fonts.swift)
             }
+
+            @Step {
+                The floating Add button is easy to miss — Step 7 scaled its `fabSize` frame with `@ScaledMetric`, but the `plus` glyph inside is still pinned to `.font(.system(size: 22, weight: .bold))`, so it stays small while the circle grows. In `ContactListView.swift`, replace it with the matching semantic style, `.font(.title2.bold())`, so the icon scales in step with the button.
+
+                @Code(name: "ContactListView.swift", file: 08-fab-icon.swift)
+            }
         }
     }
 
