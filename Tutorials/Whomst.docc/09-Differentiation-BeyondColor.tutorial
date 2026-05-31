@@ -8,7 +8,7 @@
 
         In this final step you'll add shape, weight, and icon cues alongside color so the same information lands for everyone.
 
-        @Image(source: 09-intro.png, alt: "Three side-by-side panels: tag pills, filter chips, and follow-up indicators, each shown twice — once in the starter color-only version and once with shape/icon cues added.")
+        @Image(source: 09-intro.png, alt: "Two iPhone screenshots of the contact list side by side: on the left the starter using color only; on the right the same screen with shape and icon cues added — tag pills carry SF Symbols, the selected filter chip shows a checkmark, and follow-up contacts show a bell icon.")
     }
 
     @Section(title: "Add a symbol to every tag category") {
@@ -86,7 +86,7 @@
 
             VoiceOver users already get this information from the composed label string ("Needs follow-up") set in Step 4, so mark the icon as `.accessibilityHidden(true)`.
 
-            @Image(source: 09-followup.png, alt: "A contact row with the small red dot replaced by an orange bell.badge.fill icon next to the contact's name.")
+            @Image(source: 09-followup.png, alt: "The follow-up–filtered contact list where each contact's small red dot is replaced by an orange bell.badge.fill icon next to the name.")
         }
 
         @Steps {

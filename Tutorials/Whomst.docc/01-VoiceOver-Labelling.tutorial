@@ -2,7 +2,7 @@
     @Intro(title: "VoiceOver: Labelling") {
         VoiceOver reads the screen out loud. When it lands on an icon-only button with no accessibility label, the best it can do is fall back to the SF Symbol's built-in name — so the favorite star announces a bare "Favorite, button", with no hint of *whose* favorite it would toggle. Worse, those built-in names describe the *glyph*, not the action: the LinkedIn button reads "Link" and the email button reads "Get Mail". In this step you'll add a clear, contextual label to every icon-only control in the app.
 
-        @Image(source: 01-intro.png, alt: "The simulator beside the Accessibility Inspector: the inspector's Element reads 'Favorite, Button' with Label 'Favorite' and identifier 'star.fill' for the unlabelled favourite star.")
+        @Image(source: 01-intro.png, alt: "The simulator beside the Accessibility Inspector: with no custom accessibility label set, the favourite star's Element reads 'Favorite, Button' and Label 'Favorite' — the SF Symbol's built-in name — with identifier 'star.fill'.")
     }
 
     @Section(title: "Open the starter project") {
