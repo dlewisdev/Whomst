@@ -67,9 +67,9 @@ Media: 🖼️ `@Image` · 🎞️ `@Video` (H.264 `.mp4`; poster optional).
 
 | Slot | Media | Status | Source | Capture from | Should show |
 | --- | --- | --- | --- | --- | --- |
-| `04-combine.png` | 🖼️ | ⬜ | 🖥️ | `04-Finished`, VO on | One highlight box around the whole row + the combined label. |
-| `04-custom-action.png` | 🖼️ | ⬜ | 🖥️ | `04-Finished`, VO on | The VoiceOver rotor showing "Favorite" as a custom action. |
-| `04-detail-grouping.png` | 🖼️ | ⬜ | 🖥️ | `04-Finished`, VO on | The detail header and Met-at section each in one focus rectangle. |
+| `04-combine.png` | 🖼️ | ✅ | 🔍 | `04-Finished` | Inspector beside the sim: a focus box around the whole row and its single combined label. |
+| `04-custom-action.png` | 🖼️ | ✅ | 🔍 | `04-Finished` | Inspector beside the sim, a rectangular stroke around the new "Favorite" action among the row's other actions. |
+| `04-detail-grouping.mp4` | 🎞️ | ✅ | 🔍 | `04-Finished` | Inspector focusing the grouped header (Theo Andersen · Indie Game Developer · Northern Light Games), then the grouped Met-at section (event · city · state · date). No poster. |
 | `04-verify.mp4` | 🎞️ | ⬜ | 🖥️ | `04-Finished`, VO on | A row as one stop reading the full composed announcement; swipe-up reveals "Unfavorite". Poster: `04-verify-poster.png`. |
 | ~~`04-intro.png`~~ | — | ❌ removed | — | — | Was a Figma focus-stops diagram. Replace with a VO screenshot if you want a hero. |
 

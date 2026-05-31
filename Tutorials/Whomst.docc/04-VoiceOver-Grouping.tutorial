@@ -12,7 +12,7 @@
 
             Instead, set an explicit `.accessibilityLabel` with a string composed in the order you want VoiceOver to speak it. Keep the most important information (name, follow-up status, favorite status) first.
 
-            @Image(source: 04-combine.png, alt: "The same contact row with one large highlight box around the whole row and the combined VoiceOver label shown below.")
+            @Image(source: 04-combine.png, alt: "The simulator beside the Accessibility Inspector: a focus box around a whole contact row, and the Inspector showing the row collapsed into a single combined label.")
         }
 
         @Steps {
@@ -36,7 +36,7 @@
 
             Also hide the visible favorite `Button` from accessibility with `.accessibilityHidden(true)` so VoiceOver doesn't try to expose it as a separate child element inside the combined row.
 
-            @Image(source: 04-custom-action.png, alt: "The VoiceOver rotor showing 'Favorite' as a custom action below the contact row's combined label.")
+            @Image(source: 04-custom-action.png, alt: "The Accessibility Inspector beside the simulator, with a rectangular stroke around the new 'Favorite' action highlighting it among the row's other accessibility actions.")
         }
 
         @Steps {
@@ -60,7 +60,7 @@
 
             On the header, also add `.accessibilityAddTraits(.isHeader)` so VoiceOver users can jump there with the "Headings" rotor.
 
-            @Image(source: 04-detail-grouping.png, alt: "The contact detail screen showing the header and Met-at section each surrounded by a single VoiceOver focus rectangle.")
+            @Video(source: 04-detail-grouping.mp4, alt: "Screen recording: the Accessibility Inspector beside the simulator focuses the grouped detail header — Theo Andersen, Indie Game Developer, Northern Light Games — then the grouped Met-at section showing the event, city, state, and date.")
         }
 
         @Steps {
