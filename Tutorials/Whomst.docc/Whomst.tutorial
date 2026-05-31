@@ -1,8 +1,7 @@
 @Tutorials(name: "Whomst") {
     @Intro(title: "Build an Accessible Conference Networking App") {
-        Whomst is a small SwiftUI app for keeping track of the people you meet at developer conferences. It looks great — but if you fire up VoiceOver, crank Dynamic Type to AX5, or enable color filters, the experience falls apart fast.
 
-        In this workshop you'll take a beautifully designed but inaccessible starter app and apply the nine most impactful accessibility techniques in SwiftUI, one focused step at a time. By the end, the same app will be just as delightful for users who rely on assistive technologies as it is for everyone else.
+        In this workshop you'll take an inaccessible starter app and apply some of the most impactful accessibility techniques in SwiftUI, one step at a time. By the end, the same app will be just as usable for users who rely on assistive technologies as it is for everyone else.
 
         @Image(source: hero-banner.png, alt: "The Whomst app showing a list of conference contacts with avatars, names, role tags, and conference badges.")
     }

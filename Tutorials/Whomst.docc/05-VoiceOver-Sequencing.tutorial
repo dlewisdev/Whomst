@@ -4,7 +4,6 @@
 
         In this step you'll reorder the composed labels to put critical info first, and use `accessibilitySortPriority` to make the floating Add button reachable without swiping through every contact.
 
-        @Image(source: 05-intro.png, alt: "Two versions of the same row's announcement: one ending with 'Needs follow-up' and another opening with it.")
     }
 
     @Section(title: "Reorder the row's combined label") {
@@ -13,7 +12,6 @@
 
             Reorder the parts so name → status flags → role + company → conference → tags. VoiceOver users can flick to the next row as soon as they've heard enough to decide if this contact matters right now.
 
-            @Image(source: 05-reorder.png, alt: "The combinedLabel function before and after, with arrows showing the moved 'needsFollowUp' and 'isFavorite' branches.")
         }
 
         @Steps {
@@ -37,7 +35,6 @@
 
             `.accessibilitySortPriority(_:)` controls the read order of siblings inside an accessibility container. Higher priorities are announced first. Setting the button to `1` (default is `0`) makes it the first thing VoiceOver focuses inside the list view.
 
-            @Image(source: 05-fab-priority.png, alt: "The contact list ZStack diagram showing the FAB jumping from position 'last' to position 'first' for VoiceOver.")
         }
 
         @Steps {
@@ -61,7 +58,7 @@
 
             The finished snapshot lives in `Steps/05-VoiceOver-Sequencing/Finished/`.
 
-            @Image(source: 05-verify.png, alt: "VoiceOver focused on the floating add button at the top of the screen with the announcement 'Add new contact, button'.")
+            @Video(source: 05-verify.mp4, poster: 05-verify-poster.png, alt: "Screen recording: with VoiceOver on, the first swipe from the navigation title lands on the floating add button announced 'Add new contact, button', before the filter chips and list.")
         }
     }
 }

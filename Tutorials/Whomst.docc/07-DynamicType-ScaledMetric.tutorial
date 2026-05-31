@@ -65,7 +65,7 @@
 
             The finished snapshot lives in `Steps/07-DynamicType-ScaledMetric/Finished/`.
 
-            @Image(source: 07-verify.png, alt: "Side-by-side screenshots of the app at xSmall, default, and AX5 Dynamic Type showing consistent proportions.")
+            @Video(source: 07-verify.mp4, poster: 07-verify-poster.png, alt: "Screen recording: dragging the Dynamic Type slider while the avatar and floating button grow proportionally with the text.")
         }
     }
 }

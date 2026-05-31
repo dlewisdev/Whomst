@@ -4,7 +4,6 @@
 
         SwiftUI's semantic text styles (`.headline`, `.subheadline`, `.body`, `.caption`, etc.) scale automatically. Each style has a base size at the default Dynamic Type setting and a curve that grows it for larger sizes. Use them throughout your app and the OS does the right thing for free.
 
-        @Image(source: 08-intro.png, alt: "A diagram showing literal '16pt' text staying the same size across Dynamic Type sizes while semantic '.headline' text scales up correctly.")
     }
 
     @Section(title: "Map your sizes to semantic styles") {
@@ -24,7 +23,6 @@
 
             Use Apple's [Typography in HIG](https://developer.apple.com/design/human-interface-guidelines/typography) as your authoritative reference. If you need a non-standard weight, use `.body.weight(.semibold)` rather than dropping back to `.system(size:)`.
 
-            @Image(source: 08-mapping.png, alt: "A table mapping numeric font sizes from the starter app to semantic SwiftUI font styles.")
         }
     }
 
@@ -54,7 +52,7 @@
         @ContentAndMedia {
             `TagPill`, `FilterChip`, and the tag toggles in `AddEditContactView` all use literal sizes too. Don't leave them as exceptions — semantic styles need to be used everywhere or the inconsistency will bite you when Dynamic Type scales just half your app.
 
-            @Image(source: 08-components.png, alt: "The TagPill, FilterChip, and AddEditContactView tag toggles highlighted with their semantic font replacements annotated.")
+            @Image(source: 08-components.png, alt: "A simulator screenshot of the TagPill, FilterChip, and AddEditContactView tag toggles rendered with their semantic font styles.")
         }
 
         @Steps {
@@ -78,7 +76,7 @@
 
             The finished snapshot lives in `Steps/08-DynamicType-SemanticStyles/Finished/`.
 
-            @Image(source: 08-verify.png, alt: "The Whomst app at three Dynamic Type sizes showing the text scaling consistently throughout.")
+            @Video(source: 08-verify.mp4, poster: 08-verify-poster.png, alt: "Screen recording: dragging the Dynamic Type slider while all text scales consistently through the semantic styles, with no fixed-size text left behind.")
         }
     }
 }

@@ -4,7 +4,7 @@
 
         `.accessibilityInputLabels(_:)` accepts an array of short alternative spoken names for a control. Voice Control matches any of them: "Tap Favorite," "Tap Star," even "Tap Maya" all hit the same button.
 
-        @Image(source: 02-intro.png, alt: "The contact list with Voice Control's 'Show Names' overlay, displaying short spoken names next to each control instead of long VoiceOver labels.")
+        @Video(source: 02-intro.mp4, poster: 02-intro-poster.png, alt: "Screen recording: Voice Control's 'Show Names' overlay appears over the contact list, labelling each control with a short spoken name instead of a long VoiceOver label.")
     }
 
     @Section(title: "Two labels, two audiences") {
@@ -13,7 +13,6 @@
 
             Voice Control falls back to `.accessibilityLabel` when input labels aren't set, so missing the modifier doesn't *break* anything — but users have to speak the full sentence. Adding even two short alternatives turns "Tap Favorite Maya Chen" into "Tap Favorite." That's the difference between accessible and pleasant.
 
-            @Image(source: 02-input-labels.png, alt: "A side-by-side comparison: the star button's VoiceOver label reads 'Favorite Maya Chen', while its three Voice Control input labels — Favorite, Star, Maya — are listed beneath as alternatives.")
         }
     }
 
@@ -23,7 +22,7 @@
 
             Voice Control resolves ambiguity automatically: when multiple stars match "Favorite," the system labels them with numbers ("Favorite 1," "Favorite 2," …) and the user picks one. You don't need to disambiguate manually.
 
-            @Image(source: 02-star-names.png, alt: "Voice Control's Show Names overlay positioned over a row of contacts, with 'Favorite 1', 'Favorite 2', 'Favorite 3' labels stacked vertically next to each star.")
+            @Image(source: 02-star-names.png, alt: "Accessibility Inspector beside the simulator showing the favorite star's accessibility label 'Favorite Maya Chen' and its two user input labels, 'Favorite' and 'Star'.")
         }
 
         @Steps {
@@ -47,7 +46,7 @@
 
             Give it three short alternatives: the verb ("Add"), the noun ("New contact"), and a visual descriptor ("Plus") for users who refer to controls by appearance rather than function.
 
-            @Image(source: 02-fab-names.png, alt: "The floating Add button with Voice Control's Show Names overlay listing 'Add', 'New contact', and 'Plus' as accepted spoken commands.")
+            @Image(source: 02-fab-names.png, alt: "Accessibility Inspector beside the simulator showing the floating Add button's accessibility label 'Add new contact' and its user input labels 'Add', 'New contact', and 'Plus'.")
         }
 
         @Steps {
@@ -71,7 +70,7 @@
 
             Chain `.accessibilityInputLabels(...)` after each `actionButton(...)` call — the helper itself stays untouched, and each call site supplies its own short list: `["Call", "Phone"]`, `["Email", "Mail"]`, `["LinkedIn"]`, `["Share"]`. The synonyms (`Phone`, `Mail`) cost almost nothing and catch users who reach for the more natural word.
 
-            @Image(source: 02-actions-names.png, alt: "The contact detail screen with Voice Control Show Names overlays over the four action buttons: Call, Email, LinkedIn, Share.")
+            @Video(source: 02-actions-names.mp4, alt: "Screen recording: the Accessibility Inspector moving across the four detail action buttons in turn — Call, Email, LinkedIn, Share — showing each one's accessibility label and its short user input labels (Call/Phone, Email/Mail, LinkedIn, Share).")
         }
 
         @Steps {

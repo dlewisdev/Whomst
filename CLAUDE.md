@@ -16,13 +16,15 @@ Whomst/                  ← source files for the FINAL version
 Steps/                           ← workshop snapshots, one per step
   00-Starter/                    ← original inaccessible starter
   01-VoiceOver-Labelling/{Starter,Finished}/
-  02-VoiceOver-Grouping/{Starter,Finished}/
-  03-VoiceOver-Sequencing/{Starter,Finished}/
-  04-DynamicType-AdaptiveLayout/{Starter,Finished}/
-  05-DynamicType-ScaledMetric/{Starter,Finished}/
-  06-DynamicType-SemanticStyles/{Starter,Finished}/
-  07-Differentiation-BeyondColor/{Starter,Finished}/
-Tutorials/Whomst.docc/   ← DocC tutorial catalog (table of contents + 7 .tutorial files)
+  02-VoiceControl-InputLabels/{Starter,Finished}/
+  03-VoiceOver-TapTargets/{Starter,Finished}/
+  04-VoiceOver-Grouping/{Starter,Finished}/
+  05-VoiceOver-Sequencing/{Starter,Finished}/
+  06-DynamicType-AdaptiveLayout/{Starter,Finished}/
+  07-DynamicType-ScaledMetric/{Starter,Finished}/
+  08-DynamicType-SemanticStyles/{Starter,Finished}/
+  09-Differentiation-BeyondColor/{Starter,Finished}/
+Tutorials/Whomst.docc/   ← DocC tutorial catalog (Whomst.tutorial TOC + 9 step .tutorial files)
 ```
 
 Every `Steps/NN-…/Starter/` is byte-equivalent to the previous step's `Finished/` (or to `00-Starter/` for step 1). Snapshots are produced with `rsync -a --exclude='.git' --exclude='xcuserdata' --exclude='.DS_Store'`. Each snapshot is a complete, openable Xcode project.

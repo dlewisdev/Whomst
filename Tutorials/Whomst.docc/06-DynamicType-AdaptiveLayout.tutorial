@@ -13,7 +13,6 @@
 
             Use this as your breakpoint. Below it, horizontal layouts work fine. At or above it, switch to vertical layouts that give text room to wrap.
 
-            @Image(source: 06-dynamictype-scale.png, alt: "A horizontal scale showing all twelve Dynamic Type sizes from xSmall through accessibility5, with a vertical line marking the boundary at accessibility1.")
         }
 
         @Steps {
@@ -91,7 +90,7 @@
 
             The finished snapshot lives in `Steps/06-DynamicType-AdaptiveLayout/Finished/`.
 
-            @Image(source: 06-verify.png, alt: "The Whomst contact list at AX5 Dynamic Type, with all rows readable and no clipped content.")
+            @Image(source: 06-verify.png, alt: "The contact list at AX5 Dynamic Type: every row readable in the vertical accessibility layout with no clipped content.")
         }
     }
 }

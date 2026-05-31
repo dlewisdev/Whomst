@@ -4,7 +4,6 @@
 
         In this step you'll group each row into a single accessibility element with a composed label that says everything at once, and expose the favorite toggle as a custom action.
 
-        @Image(source: 04-intro.png, alt: "A contact row with arrows showing eight separate VoiceOver focus stops, contrasted with the same row after grouping showing one focus stop.")
     }
 
     @Section(title: "Combine the row into one element") {
@@ -85,7 +84,7 @@
 
             The finished snapshot lives in `Steps/04-VoiceOver-Grouping/Finished/`.
 
-            @Image(source: 04-verify.png, alt: "A single VoiceOver focus rectangle around a contact row with the full composed announcement shown.")
+            @Video(source: 04-verify.mp4, poster: 04-verify-poster.png, alt: "Screen recording: VoiceOver focuses a contact row as a single stop and reads the full composed announcement in one pass, then a swipe up reveals the 'Unfavorite' custom action.")
         }
     }
 }
