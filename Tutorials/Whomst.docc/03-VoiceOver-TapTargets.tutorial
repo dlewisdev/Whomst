@@ -16,7 +16,7 @@
             - Combines the children into a single focus stop, so the user swipes once per row instead of once per element.
             - Hands activation off to the `navigationDestination(for:)` modifier on the enclosing stack.
 
-            None of that is opt-in. You get it by using the right SwiftUI component. The fix in this step is mechanical — *unwrap* the tap gesture and put `NavigationLink` back where it belongs.
+            None of that is opt-in. You get it by using the right SwiftUI component. The fix in this step is simple — *remove* the tap gesture and put `NavigationLink` back where it belongs.
 
         }
     }
