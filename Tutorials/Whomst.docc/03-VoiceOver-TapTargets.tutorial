@@ -9,14 +9,14 @@
         @ContentAndMedia {
             `.onTapGesture` registers a closure for sighted touch input. VoiceOver doesn't surface it as an action because — from the assistive technology's perspective — there's no element that announces itself as actionable. The row's children come through individually, but none of them are tappable, and the row's parent isn't a button. A VoiceOver user can swipe past every element of a row without ever discovering they're inside a navigation control.
 
-            `NavigationLink` is the semantic primitive for "this view navigates somewhere." When SwiftUI sees one in a `NavigationStack`, it automatically:
+            `NavigationLink` is the semantic component for "this view navigates somewhere." When SwiftUI sees one in a `NavigationStack`, it automatically:
 
             - Adds the `.isButton` accessibility trait so VoiceOver announces "Button" along with the row's label.
             - Adds the standard activation hint — VoiceOver speaks "Double-tap to activate."
             - Combines the children into a single focus stop, so the user swipes once per row instead of once per element.
             - Hands activation off to the `navigationDestination(for:)` modifier on the enclosing stack.
 
-            None of that is opt-in. You get it by using the right SwiftUI primitive. The fix in this step is mechanical — *unwrap* the tap gesture and put `NavigationLink` back where it belongs.
+            None of that is opt-in. You get it by using the right SwiftUI component. The fix in this step is mechanical — *unwrap* the tap gesture and put `NavigationLink` back where it belongs.
 
         }
     }
