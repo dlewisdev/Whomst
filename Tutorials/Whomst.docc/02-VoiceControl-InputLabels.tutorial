@@ -1,6 +1,6 @@
 @Tutorial(time: 15) {
     @Intro(title: "Voice Control: Input Labels") {
-        Voice Control lets users interact with the app by speaking — "Tap Favorite Maya Chen," "Tap Add new contact." The labels you wrote in Step 1 work, but the verbose VoiceOver-friendly phrasing makes for awkward spoken commands. With twelve favourites in the list, "Tap Favorite Maya Chen" is a lot to say just to toggle one star.
+        Voice Control lets users interact with the app by speaking — "Tap Favorite Maya Chen," "Tap Add new contact." The labels you wrote in Step 1 work, but the verbose VoiceOver-friendly phrasing makes for awkward spoken commands. With twelve favorites in the list, "Tap Favorite Maya Chen" is a lot to say just to toggle one star.
 
         `.accessibilityInputLabels(_:)` accepts an array of short alternative spoken names for a control. Voice Control matches any of them: "Tap Favorite," "Tap Star," even "Tap Maya" all hit the same button.
 
@@ -9,14 +9,14 @@
 
     @Section(title: "Two labels, two audiences") {
         @ContentAndMedia {
-            Same control, different sentence. `.accessibilityLabel` is what VoiceOver speaks *to* the user — it should be descriptive, context-rich, and clearly identify what the control does and which entity it acts on. `.accessibilityInputLabels(_:)` is what the user speaks *to* the app — it should be short, plural, and forgiving of how a user might naturally phrase a command.
+            Same control, different sentence. `.accessibilityLabel` is what *VoiceOver* speaks to the *user* — it should be descriptive, context-rich, and clearly identify what the control does and which entity it acts on. `.accessibilityInputLabels(_:)` are what the *user* speaks to the *app* — they should be short, plural, and forgiving of how a user might naturally phrase a command.
 
-            Voice Control falls back to `.accessibilityLabel` when input labels aren't set, so missing the modifier doesn't *break* anything — but users have to speak the full sentence. Adding even two short alternatives turns "Tap Favorite Maya Chen" into "Tap Favorite." That's the difference between accessible and pleasant.
+            Voice Control falls back to `.accessibilityLabel` when input labels aren't set, so missing the modifier doesn't *break* anything — but users have to speak the full sentence. Adding even two short alternatives turns "Tap Favorite Maya Chen" into "Tap Favorite." That's the difference between your app just being accessible and being actually pleasant to use with these tools.
 
         }
     }
 
-    @Section(title: "Short names for the favourite star") {
+    @Section(title: "Short names for the favorite star") {
         @ContentAndMedia {
             The star button in `ContactRowView` already has an accessibility label like "Favorite Maya Chen." Add a short list of spoken alternatives so users can just say "Tap Favorite" or "Tap Star" without speaking the contact's name.
 
@@ -42,7 +42,7 @@
 
     @Section(title: "Short names for the floating Add button") {
         @ContentAndMedia {
-            The FAB is the app's most-used control. Voice Control users reach for it constantly — and "Tap Add new contact" is a mouthful for what should feel like one word.
+            The add button is the app's most-used control. Voice Control users reach for it constantly — and "Tap Add new contact" is a mouthful for what should feel like one word.
 
             Give it three short alternatives: the verb ("Add"), the noun ("New contact"), and a visual descriptor ("Plus") for users who refer to controls by appearance rather than function.
 
@@ -92,7 +92,7 @@
         @ContentAndMedia {
             Voice Control needs a microphone for live testing, which makes the simulator awkward for end-to-end verification. **Accessibility Inspector** is the deterministic alternative — it shows every control's input labels without you having to speak.
 
-            Xcode → Open Developer Tool → **Accessibility Inspector** → pick your booted simulator from the target picker → click the crosshair and hover the star, FAB, or an action button. The inspector lists `accessibilityLabel` and `accessibilityUserInputLabels` as separate properties. Confirm your short names appear under input labels.
+            Xcode → Open Developer Tool → **Accessibility Inspector** → pick your booted simulator from the target picker → click the crosshair and hover the star, add button, or an action button. The inspector lists `accessibilityLabel` and `accessibilityUserInputLabels` as separate properties. Confirm your short names appear under input labels.
 
             For a real end-to-end test, install the build on a device with Voice Control turned on and say *"Show names."* Every control with input labels should display them as overlaid badges; tap by speaking any one.
 

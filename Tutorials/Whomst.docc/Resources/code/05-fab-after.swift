@@ -1,4 +1,4 @@
-// in ContactListView.swift — bump VoiceOver order so FAB reads before the list
+// in ContactListView.swift — bump VoiceOver order so the add button reads before the list
 
 private var addButton: some View {
     Button {
