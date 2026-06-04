@@ -12,7 +12,7 @@
 
             The row is already merged, so you don't need `.accessibilityElement` here at all. Just set an explicit `.accessibilityLabel` with a string composed in the order you want VoiceOver to speak it, keeping the most important information (name, follow-up status, favorite status) first.
 
-            @Image(source: 04-combine.png, alt: "The simulator beside the Accessibility Inspector: a focus box around a whole contact row, and the Inspector showing the row's single combined label.")
+            @Image(source: 04-combine.png, alt: "The simulator beside the Accessibility Inspector: a focus box around a whole contact row, and the Inspector showing its composed accessibility label.")
         }
 
         @Steps {
