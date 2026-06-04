@@ -7,7 +7,7 @@
     }
 
     @Chapter(name: "VoiceOver & Voice Control") {
-        VoiceOver is Apple's screen reader; Voice Control is its spoken-command counterpart. Both are driven by the same labels — and the same SwiftUI components — that you attach in code. A great experience for either one comes from five layered fixes: labelling individual elements, giving them short input names users can speak, surfacing tappable regions as proper navigation targets so assistive tech recognises them as actionable, grouping related elements into a single announcement, and sequencing those announcements in the most useful order.
+        VoiceOver is Apple's screen reader; Voice Control is its spoken-command counterpart. Both are driven by the same labels, and the same SwiftUI components, that you attach in code. A great experience for either one comes from five layered fixes: labelling individual elements, giving them short input names users can speak, surfacing tappable regions as proper navigation targets so assistive tech recognises them as actionable, grouping related elements into a single announcement, and sequencing those announcements in the most useful order.
 
         @TutorialReference(tutorial: "doc:01-VoiceOver-Labelling")
         @TutorialReference(tutorial: "doc:02-VoiceControl-InputLabels")

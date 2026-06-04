@@ -1,4 +1,4 @@
-// in ContactListView.swift — after Step 1's label and hint were added
+// in ContactListView.swift: after Step 1's label and hint were added
 
 private var addButton: some View {
     Button {

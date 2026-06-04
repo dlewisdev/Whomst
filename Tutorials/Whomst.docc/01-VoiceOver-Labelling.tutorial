@@ -1,17 +1,17 @@
 @Tutorial(time: 15) {
     @Intro(title: "VoiceOver: Labelling") {
-        VoiceOver reads the screen out loud. When it lands on an icon-only button with no accessibility label, the best it can do is fall back to the SF Symbol's built-in name — so the favorite star announces a bare "Favorite, button", with no hint of *whose* favorite it would toggle. Worse, those built-in names describe the *glyph*, not the action: the LinkedIn button reads "Link" and the email button reads "Get Mail". In this step you'll add a clear, contextual label to every icon-only control in the app.
+        VoiceOver is a built-in screen reader. When it lands on an icon-only button with no accessibility label, the best it can do is fall back to the SF Symbol's built-in name, so the favorite star announces a bare "Favorite, button", with no hint of *whose* favorite it would toggle. Those built-in names also describe the *symbol*, not the action: the LinkedIn button reads "Link" and the email button reads "Get Mail". In this step you'll add a clear, contextual label to every icon-only control in the app.
 
-        @Image(source: 01-intro.png, alt: "The simulator beside the Accessibility Inspector: with no custom accessibility label set, the favourite star's Element reads 'Favorite, Button' and Label 'Favorite' — the SF Symbol's built-in name — with identifier 'star.fill'.")
+        @Image(source: 01-intro.png, alt: "The simulator beside the Accessibility Inspector: with no custom accessibility label set, the favorite star's Element reads 'Favorite, Button' and Label 'Favorite' (the SF Symbol's built-in name), with identifier 'star.fill'.")
     }
 
     @Section(title: "Open the starter project") {
         @ContentAndMedia {
-            Start from the `Steps/01-VoiceOver-Labelling/Starter/` snapshot. This is the original delightful-but-inaccessible app. Run it on a simulator with VoiceOver on (⌘ + Option + F5 in the simulator, or triple-click side button on a real device).
+            Start from the `Steps/01-VoiceOver-Labelling/Starter/` snapshot. This is the original inaccessible app. Run it on a simulator or device with VoiceOver on (⌘ + Option + F5 in the simulator, or triple-click side button on a real device).
 
-            Tap around the contact list and detail screens with VoiceOver. Notice how every icon-only button falls back to its SF Symbol's built-in name: the star reads "Favorite", the floating plus "Add", the edit pencil "Compose", and the action row "Call", "Get Mail", "Link", and "Share". None of them say *who* or *what* they act on — and some ("Get Mail", "Link") don't even match what the button does — so users can't tell one row's star, or one contact's call button, from another's.
+            Tap around the contact list and detail screens with VoiceOver. Notice how every icon-only button falls back to its SF Symbol's built-in name: the star reads "Favorite", the floating plus "Add", the edit pencil "Compose", and the action row "Call", "Get Mail", "Link", and "Share". None of them say *who* or *what* they act on, and some ("Get Mail", "Link") don't even match what the button does, so users can't tell one row's star, or one contact's call button, from another's.
 
-            @Image(source: 01-starter-screenshot.png, alt: "The Whomst starter app's contact list — avatars, names, roles, coloured role tags, and an unlabelled star on each row.")
+            @Image(source: 01-starter-screenshot.png, alt: "The Whomst starter app's contact list, with avatars, names, roles, colored role tags, and an unlabelled star on each row.")
         }
 
         @Steps {
@@ -31,11 +31,11 @@
 
     @Section(title: "Label the favorite star") {
         @ContentAndMedia {
-            Every contact row has a star button on the right side. Without an explicit label, VoiceOver falls back to the `star` symbol's built-in name and announces just "Favorite, button" — which doesn't tell the user *whose* favorite they'd be toggling.
+            Every contact row has a star button on the right side. Without an explicit label, VoiceOver falls back to the `star` symbol's built-in name and announces just "Favorite, button", which doesn't tell the user *whose* favorite they'd be toggling.
 
             The fix is `.accessibilityLabel`. Compose the label dynamically using the contact's name so VoiceOver announces *"Favorite Maya Chen"* or *"Unfavorite Diego Ramirez"* depending on the current state.
 
-            @Image(source: 01-star-label.png, alt: "The simulator beside the Accessibility Inspector showing the favourite star's Element 'Favorite, Button' and Label 'Favorite' before a contextual label is added.")
+            @Image(source: 01-star-label.png, alt: "The simulator beside the Accessibility Inspector showing the favorite star's Element 'Favorite, Button' and Label 'Favorite' before a contextual label is added.")
         }
 
         @Steps {
@@ -60,7 +60,7 @@
             - The floating **plus** button on the contact list
             - The **star** and **pencil** buttons in the contact detail toolbar
             - The **call**, **email**, **LinkedIn**, and **share** buttons in the action row
-            - The decorative **calendar** SF Symbol next to the conference date — this one gets `.accessibilityHidden(true)` instead, because the text right next to it already conveys the meaning
+            - The decorative **calendar** SF Symbol next to the conference date. This one gets `.accessibilityHidden(true)` instead, because the text right next to it already conveys the meaning
 
             The principle: every interactive control needs a label that describes the **action** it performs. Purely decorative imagery should be hidden so VoiceOver doesn't waste users' time announcing it.
 
@@ -69,7 +69,9 @@
 
         @Steps {
             @Step {
-                In `ContactListView.swift`, find `addButton` and add `.accessibilityLabel("Add new contact")` plus an `.accessibilityHint` describing what tapping it does.
+                In `ContactListView.swift`, find `addButton` and add `.accessibilityLabel("Add new contact")` plus an `.accessibilityHint` describing what tapping it does. 
+                
+                Note: `.accessibilityHint` should not be used to convey necessary information because there is a setting allowing users to disable hints.
 
                 @Code(name: "ContactListView.swift", file: 01-fab-after.swift, previousFile: 01-fab-before.swift)
             }
@@ -81,7 +83,7 @@
             }
 
             @Step {
-                Mark the decorative calendar icon in `ContactRowView.swift` as hidden — the conference name and date text right next to it already convey everything VoiceOver needs.
+                Mark the decorative calendar icon in `ContactRowView.swift` as hidden, since the conference name and date text right next to it already convey everything VoiceOver needs.
 
                 @Code(name: "ContactRowView.swift", file: 01-calendar-after.swift, previousFile: 01-calendar-before.swift)
             }
@@ -92,7 +94,7 @@
         @ContentAndMedia {
             Run the app again with VoiceOver on. Sweep through the contact list and a detail screen.
 
-            Every button should now announce a clear, action-oriented label that includes the relevant context (the contact name where applicable). Decorative icons are silent. You haven't fixed everything yet — the row still reads as five or six separate elements per contact — but every individual element is now intelligible.
+            Every button should now announce a clear, action-oriented label that includes the relevant context (the contact name where applicable). Decorative icons are silent. You haven't fixed everything yet (the row still reads as five or six separate elements per contact), but every individual element is now intelligible.
 
             The finished snapshot lives in `Steps/01-VoiceOver-Labelling/Finished/`.
 

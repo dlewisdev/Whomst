@@ -1,4 +1,4 @@
-// in ContactDetailView.swift — show title text alongside icon at AX sizes
+// in ContactDetailView.swift: show title text alongside icon at AX sizes
 
 private func actionButton(
     icon: String,

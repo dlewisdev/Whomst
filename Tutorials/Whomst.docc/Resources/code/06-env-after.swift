@@ -1,4 +1,4 @@
-// in ContactRowView.swift — read the user's Dynamic Type setting
+// in ContactRowView.swift: read the user's Dynamic Type setting
 
 struct ContactRowView: View {
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize

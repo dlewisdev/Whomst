@@ -1,14 +1,14 @@
 @Tutorial(time: 20) {
     @Intro(title: "VoiceOver: Grouping & Composed Labels") {
-        Step 3's `NavigationLink` already collapsed each contact row into a single accessibility element — one focus stop instead of seven or eight. But it reads as a raw run-on of its children in source order: name, role, company, conference, tags, and *then* the status that matters most ("Needs follow-up", "Favorited") trailing at the very end.
+        Step 3's `NavigationLink` already collapsed each contact row into a single accessibility element, one focus stop instead of seven or eight. But it reads as a raw run-on, stitched together from each child's label with no connecting words and no control over what's included or how it's phrased.
 
-        In this step you'll take control of *what* that merged element announces by composing an explicit label, restore the favorite toggle as a custom action (it got absorbed when the row became one element), and apply grouping to the detail screen — where there's no `NavigationLink` doing it for you.
+        In this step you'll take control of *what* that merged element announces by composing an explicit, readable label, restore the favorite toggle as a custom action (it got absorbed when the row became one element), and apply grouping to the detail screen, where there's no `NavigationLink` doing it for you. (Getting the announcement *order* right comes next, in Step 5.)
 
     }
 
     @Section(title: "Compose the row's label") {
         @ContentAndMedia {
-            When SwiftUI merges a view into one accessibility element — whether through a `NavigationLink` like Step 3's, or the `.accessibilityElement(children: .combine)` modifier you'll use on the detail screen below — its label defaults to the concatenation of every visible child's label. That works, but the order and punctuation rarely sound right.
+            When SwiftUI merges a view into one accessibility element, whether through a `NavigationLink` like Step 3's or the `.accessibilityElement(children: .combine)` modifier you'll use on the detail screen below, its label defaults to the concatenation of every visible child's label. That works, but the order and punctuation rarely sound right.
 
             The row is already merged, so you don't need `.accessibilityElement` here at all. Just set an explicit `.accessibilityLabel` with a string composed in the order you want VoiceOver to speak it, keeping the most important information (name, follow-up status, favorite status) first.
 
@@ -17,7 +17,7 @@
 
         @Steps {
             @Step {
-                Open `ContactRowView.swift`. Because Step 3 wrapped the row in a `NavigationLink`, it's already one element — its label is just the default child concatenation.
+                Open `ContactRowView.swift`. Because Step 3 wrapped the row in a `NavigationLink`, it's already one element, and its label is just the default child concatenation.
 
                 @Code(name: "ContactRowView.swift", file: 04-combine-before.swift)
             }
@@ -32,7 +32,7 @@
 
     @Section(title: "Expose the star as a custom action") {
         @ContentAndMedia {
-            Merging the row folds the favorite button into the single element — so it's no longer separately focusable, but users still need a way to favorite a contact. The answer is `.accessibilityAction(named:)`. Custom actions appear in VoiceOver's rotor: the user swipes up or down to choose, then double-taps to invoke.
+            Merging the row folds the favorite button into the single element, so it's no longer separately focusable, but users still need a way to favorite a contact. The answer is `.accessibilityAction(named:)`. Custom actions appear in VoiceOver's rotor: the user swipes up or down to choose, then double-taps to invoke.
 
             Also hide the visible favorite `Button` from accessibility with `.accessibilityHidden(true)` so its own "Favorite Maya Chen" label isn't pulled into the row's composed announcement.
 
@@ -56,11 +56,11 @@
 
     @Section(title: "Group the detail header and Met-at row") {
         @ContentAndMedia {
-            The contact detail screen isn't wrapped in a `NavigationLink`, so nothing has merged its elements — the header (avatar, name, follow-up dot, role, company) is still five separate stops and the "Met at" section (icon, conference name, location, date) is four. This is where you reach for `.accessibilityElement(children: .combine)` explicitly: apply it, then add a composed `.accessibilityLabel` just like you did for the row.
+            The contact detail screen isn't wrapped in a `NavigationLink`, so nothing has merged its elements: the header (avatar, name, follow-up dot, role, company) is still five separate stops and the "Met at" section (icon, conference name, location, date) is four. This is where you reach for `.accessibilityElement(children: .combine)` explicitly: apply it, then add a composed `.accessibilityLabel` just like you did for the row.
 
             On the header, also add `.accessibilityAddTraits(.isHeader)` so VoiceOver users can jump there with the "Headings" rotor.
 
-            @Video(source: 04-detail-grouping.mp4, alt: "Screen recording: the Accessibility Inspector beside the simulator focuses the grouped detail header — Theo Andersen, Indie Game Developer, Northern Light Games — then the grouped Met-at section showing the event, city, state, and date.")
+            @Video(source: 04-detail-grouping.mp4, alt: "Screen recording: the Accessibility Inspector beside the simulator focuses the grouped detail header (Theo Andersen, Indie Game Developer, Northern Light Games), then the grouped Met-at section showing the event, city, state, and date.")
         }
 
         @Steps {

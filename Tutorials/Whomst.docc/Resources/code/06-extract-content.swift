@@ -1,4 +1,4 @@
-// in ContactRowView.swift — extract reusable content stack
+// in ContactRowView.swift: extract reusable content stack
 
 private var contentStack: some View {
     VStack(alignment: .leading, spacing: 4) {

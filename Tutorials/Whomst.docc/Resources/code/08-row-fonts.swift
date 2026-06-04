@@ -1,4 +1,4 @@
-// in ContactRowView.swift — semantic styles instead of literal sizes
+// in ContactRowView.swift: semantic styles instead of literal sizes
 
 private var contentStack: some View {
     VStack(alignment: .leading, spacing: 4) {

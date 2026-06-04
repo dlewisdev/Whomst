@@ -1,4 +1,4 @@
-// in Views/Components/TagPill.swift — add the symbol next to the label
+// in Views/Components/TagPill.swift: add the symbol next to the label
 
 struct TagPill: View {
     let tag: TagCategory

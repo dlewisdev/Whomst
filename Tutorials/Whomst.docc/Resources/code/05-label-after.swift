@@ -1,4 +1,4 @@
-// in ContactRowView.swift — reordered: status first, descriptive details last
+// in ContactRowView.swift: reordered: status first, descriptive details last
 
 private var combinedLabel: String {
     var parts: [String] = [contact.fullName]

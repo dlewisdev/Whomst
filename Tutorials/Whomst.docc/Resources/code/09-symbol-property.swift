@@ -1,4 +1,4 @@
-// in Models/TagCategory.swift — add an SF Symbol per category
+// in Models/TagCategory.swift: add an SF Symbol per category
 
 enum TagCategory: String, CaseIterable, Hashable, Identifiable {
     case engineer = "Engineer"

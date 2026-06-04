@@ -1,4 +1,4 @@
-// in ContactDetailView.swift — semantic styles throughout
+// in ContactDetailView.swift: semantic styles throughout
 
 private var header: some View {
     VStack(spacing: 12) {

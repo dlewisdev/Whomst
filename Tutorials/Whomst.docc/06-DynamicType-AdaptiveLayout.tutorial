@@ -9,7 +9,7 @@
 
     @Section(title: "Read the user's preferred size") {
         @ContentAndMedia {
-            SwiftUI exposes the user's current Dynamic Type setting through `@Environment(\.dynamicTypeSize)`. The `DynamicTypeSize` enum has an `isAccessibilitySize` property that's true for `accessibility1` through `accessibility5` — the five sizes available only when the user has enabled "Larger Accessibility Sizes" in Settings.
+            SwiftUI exposes the user's current Dynamic Type setting through `@Environment(\.dynamicTypeSize)`. The `DynamicTypeSize` enum has an `isAccessibilitySize` property that's true for `accessibility1` through `accessibility5`, the five sizes available only when the user has enabled "Larger Accessibility Sizes" in Settings.
 
             Use this as your breakpoint. Below it, horizontal layouts work fine. At or above it, switch to vertical layouts that give text room to wrap.
 
@@ -34,7 +34,7 @@
         @ContentAndMedia {
             At accessibility sizes the row stacks vertically: the avatar and favorite button get their own row at the top, with the content (name, role, conference, tags) flowing beneath at full width. The favorite button moves from the trailing edge of the row to the trailing edge of the top sub-row where it has space to breathe.
 
-            Tags also need attention — five tag pills in an HStack at AX5 will overflow. Switch tags to a `VStack` when the size is accessibility-class so each pill gets its own line.
+            Tags also need attention: five tag pills in an HStack at AX5 will overflow. Switch tags to a `VStack` when the size is accessibility-class so each pill gets its own line.
 
             @Image(source: 06-vertical-layout.png, alt: "The accessibility-size contact row showing avatar and favorite button on top, with name, role, conference, and tags stacked vertically beneath.")
         }
@@ -64,7 +64,7 @@
         @ContentAndMedia {
             The detail view has the same problem in two places: a horizontal row of four large action buttons (call, email, LinkedIn, share), and the Met-at section which uses an icon-plus-text HStack. Use `AnyLayout(VStackLayout())` vs `AnyLayout(HStackLayout())` so the layout choice is a value you can switch on, rather than two parallel `if`-branches.
 
-            Action buttons also gain a text label next to them at accessibility sizes — the icons alone get cramped, but with a "Call" / "Email" / "LinkedIn" text label they read clearly even at the largest size.
+            Action buttons also gain a text label next to them at accessibility sizes. The icons alone get cramped, but with a "Call" / "Email" / "LinkedIn" text label they read clearly even at the largest size.
 
             @Image(source: 06-detail-adapt.png, alt: "The detail screen at an accessibility Dynamic Type size showing the action buttons stacked vertically with text labels (Email, LinkedIn, Share), and the Met-at section below.")
         }
@@ -90,7 +90,7 @@
 
             The finished snapshot lives in `Steps/06-DynamicType-AdaptiveLayout/Finished/`.
 
-            @Image(source: 06-verify.png, alt: "Two screenshots side by side at an accessibility Dynamic Type size: on the left the contact list in its vertical layout, on the right the contact detail page in its vertical layout — both readable with no clipped content.")
+            @Image(source: 06-verify.png, alt: "Two screenshots side by side at an accessibility Dynamic Type size: on the left the contact list in its vertical layout, on the right the contact detail page in its vertical layout, both readable with no clipped content.")
         }
     }
 }

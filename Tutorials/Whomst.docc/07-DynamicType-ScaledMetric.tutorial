@@ -1,8 +1,8 @@
 @Tutorial(time: 15) {
     @Intro(title: "Dynamic Type: @ScaledMetric") {
-        Even after Step 6 fixed the layout, one thing still looks off at AX5: the 56-point avatar circle next to a wall of huge text looks tiny and out of proportion. Same with the 60-point floating Add button — it shrinks visually relative to the text around it, even though its pixel size didn't change.
+        Even after Step 6 fixed the layout, one thing still looks off at AX5: the 56-point avatar circle next to a wall of huge text looks tiny and out of proportion. Same with the 60-point floating Add button, which shrinks visually relative to the text around it, even though its pixel size didn't change.
 
-        `@ScaledMetric` is SwiftUI's property wrapper that scales any `CGFloat` proportionally to the current Dynamic Type setting. Sizes that you want to "grow with the text" — avatars, icon backgrounds, add-button diameters, large paddings — should use it. Sizes that shouldn't (window margins, divider thickness) stay as plain literals.
+        `@ScaledMetric` is SwiftUI's property wrapper that scales any `CGFloat` proportionally to the current Dynamic Type setting. Sizes that you want to "grow with the text" (avatars, icon backgrounds, add-button diameters, large paddings) should use it. Sizes that shouldn't (window margins, divider thickness) stay as plain literals.
 
         @Image(source: 07-intro.png, alt: "Two iPhone screenshots of the contact list side by side: on the left at default Dynamic Type the avatar circles are small; on the right at an accessibility size the avatars have grown proportionally with the enlarged text.")
     }
@@ -39,7 +39,7 @@
         @ContentAndMedia {
             Apply the same pattern in `ContactListView` (the add button) and `ContactDetailView` (the four action buttons and the Met-at icon background). Declare `@ScaledMetric` properties on the view and use them in `.frame(width:height:)`.
 
-            Resist scaling everything — only scale things that should grow with text. A 1-point divider should stay 1 point. The 20-point edge padding around your scroll view should usually stay 20 points (it's about layout structure, not text proportion).
+            Resist scaling everything; only scale things that should grow with text. A 1-point divider should stay 1 point. The 20-point edge padding around your scroll view should usually stay 20 points (it's about layout structure, not text proportion).
 
             @Image(source: 07-fab-scaled.png, alt: "The floating add button at default and AX5 Dynamic Type, showing it grows from 60pt to a much larger size.")
         }
@@ -61,7 +61,7 @@
 
     @Section(title: "Verify proportions at multiple sizes") {
         @ContentAndMedia {
-            Toggle Dynamic Type through xSmall → default → Large → AX1 → AX5 and watch the avatars, add button, and action buttons grow with the text. The visual proportions should feel stable across the whole range — nothing looks tiny, nothing looks comically oversized.
+            Toggle Dynamic Type through xSmall → default → Large → AX1 → AX5 and watch the avatars, add button, and action buttons grow with the text. The visual proportions should feel stable across the whole range: nothing looks tiny, nothing looks comically oversized.
 
             The finished snapshot lives in `Steps/07-DynamicType-ScaledMetric/Finished/`.
 

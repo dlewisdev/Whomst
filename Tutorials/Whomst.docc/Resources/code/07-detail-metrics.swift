@@ -1,4 +1,4 @@
-// in ContactDetailView.swift — scale the action buttons and Met-at icon
+// in ContactDetailView.swift: scale the action buttons and Met-at icon
 
 struct ContactDetailView: View {
     @Environment(ContactStore.self) private var store

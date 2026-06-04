@@ -1,4 +1,4 @@
-// in ContactDetailView.swift — update the call site to use baseSize
+// in ContactDetailView.swift: update the call site to use baseSize
 
 private var header: some View {
     VStack(spacing: 12) {

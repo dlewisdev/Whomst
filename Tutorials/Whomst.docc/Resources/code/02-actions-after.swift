@@ -47,4 +47,4 @@ private var actionRow: some View {
     }
 }
 
-// The actionButton helper itself stays unchanged — input labels chain at each call site.
+// The actionButton helper itself stays unchanged; input labels chain at each call site.

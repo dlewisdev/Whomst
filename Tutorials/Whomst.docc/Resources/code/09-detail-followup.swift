@@ -1,4 +1,4 @@
-// in ContactDetailView.swift — same icon swap, sized for the large title
+// in ContactDetailView.swift: same icon swap, sized for the large title
 
 HStack(spacing: 8) {
     Text(contact.fullName)

@@ -1,4 +1,4 @@
-// in ContactRowView.swift — switch between two layouts
+// in ContactRowView.swift: switch between two layouts
 
 var body: some View {
     Group {

@@ -1,4 +1,4 @@
-// in ContactRowView.swift — combinedLabel after Step 4 (source order)
+// in ContactRowView.swift: combinedLabel after Step 4 (source order)
 
 private var combinedLabel: String {
     var parts: [String] = [contact.fullName]

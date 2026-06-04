@@ -1,4 +1,4 @@
-// in ContactDetailView.swift — after Step 1's per-contact labels were added
+// in ContactDetailView.swift: after Step 1's per-contact labels were added
 
 private var actionRow: some View {
     HStack(spacing: 20) {

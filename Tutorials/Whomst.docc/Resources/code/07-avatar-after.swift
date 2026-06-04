@@ -1,4 +1,4 @@
-// in Views/Components/AvatarView.swift — scale with Dynamic Type
+// in Views/Components/AvatarView.swift: scale with Dynamic Type
 
 struct AvatarView: View {
     let initials: String

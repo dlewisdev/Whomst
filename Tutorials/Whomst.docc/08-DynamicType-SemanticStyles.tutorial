@@ -1,6 +1,6 @@
 @Tutorial(time: 15) {
     @Intro(title: "Dynamic Type: Semantic Text Styles") {
-        Everywhere in the starter you'll see fonts like `.font(.system(size: 16, weight: .semibold))`. Those literal sizes don't scale with Dynamic Type — they're frozen at 16 points regardless of the user's preference. The user can drag the size slider all the way up and the text won't budge.
+        Everywhere in the starter you'll see fonts like `.font(.system(size: 16, weight: .semibold))`. Those literal sizes don't scale with Dynamic Type; they're frozen at 16 points regardless of the user's preference. The user can drag the size slider all the way up and the text won't budge.
 
         SwiftUI's semantic text styles (`.headline`, `.subheadline`, `.body`, `.caption`, etc.) scale automatically. Each style has a base size at the default Dynamic Type setting and a curve that grows it for larger sizes. Use them throughout your app and the OS does the right thing for free.
 
@@ -28,7 +28,7 @@
 
     @Section(title: "Sweep the row and detail views") {
         @ContentAndMedia {
-            Search across the project for `.font(.system(` — every match is a target. Replace each one with the semantic style that matches the visual role, not just the number. The contact name is a `.headline` because it's the primary heading of a row, not because it happened to be 16 points.
+            Search across the project for `.font(.system(`; every match is a target. Replace each one with the semantic style that matches the visual role, not just the number. The contact name is a `.headline` because it's the primary heading of a row, not because it happened to be 16 points.
 
             @Image(source: 08-sweep.png, alt: "Xcode's Find Navigator showing matches for '.font(.system(' across multiple files in the project.")
         }
@@ -50,9 +50,9 @@
 
     @Section(title: "Update the supporting components") {
         @ContentAndMedia {
-            `TagPill`, `FilterChip`, and the tag toggles in `AddEditContactView` all use literal sizes too. Don't leave them as exceptions — semantic styles need to be used everywhere or the inconsistency will bite you when Dynamic Type scales just half your app.
+            `TagPill`, `FilterChip`, and the tag toggles in `AddEditContactView` all use literal sizes too. Don't leave them as exceptions; semantic styles need to be used everywhere or the inconsistency will bite you when Dynamic Type scales just half your app.
 
-            @Image(source: 08-components.png, alt: "iPhone screenshots — the contact list, a contact's detail screen, and the New Contact form — showing the TagPill, FilterChip, and AddEditContactView tag toggles rendered with semantic font styles.")
+            @Image(source: 08-components.png, alt: "iPhone screenshots (the contact list, a contact's detail screen, and the New Contact form) showing the TagPill, FilterChip, and AddEditContactView tag toggles rendered with semantic font styles.")
         }
 
         @Steps {

@@ -1,31 +1,31 @@
 @Tutorial(time: 15) {
     @Intro(title: "VoiceOver: Tap Targets") {
-        After Steps 1 and 2 every control announces with a clear label and short Voice Control input names. But the contact list itself is still broken in a way that doesn't show up in inspection — it navigates via `.onTapGesture`, which means VoiceOver gets no signal that the row is interactive. The user sees a sea of individually-focusable text and image elements with no "Button" trait, no "double-tap to activate" hint, and no way to trigger the navigation a sighted user takes for granted.
+        After Steps 1 and 2 every control announces with a clear label and short Voice Control input names. But the contact list itself is still broken in a way that doesn't show up in inspection: it navigates via `.onTapGesture`, which means VoiceOver gets no signal that the row is interactive. The user sees a sea of individually-focusable text and image elements with no "Button" trait, no "double-tap to activate" hint, and no way to trigger the navigation a sighted user takes for granted.
 
-        @Video(source: 03-intro.mp4, alt: "Screen recording: VoiceOver moving through a contact row, stopping on every individual child element — avatar, name, role, company, conference, each tag, the star — with no surrounding 'Button' trait to show the row navigates anywhere.")
+        @Video(source: 03-intro.mp4, alt: "Screen recording: VoiceOver moving through a contact row, stopping on every individual child element (avatar, name, role, company, conference, each tag, the star) with no surrounding 'Button' trait to show the row navigates anywhere.")
     }
 
     @Section(title: "Why `.onTapGesture` is invisible to VoiceOver") {
         @ContentAndMedia {
-            `.onTapGesture` registers a closure for sighted touch input. VoiceOver doesn't surface it as an action because — from the assistive technology's perspective — there's no element that announces itself as actionable. The row's children come through individually, but none of them are tappable, and the row's parent isn't a button. A VoiceOver user can swipe past every element of a row without ever discovering they're inside a navigation control.
+            `.onTapGesture` registers a closure for sighted touch input. VoiceOver doesn't surface it as an action because, from the assistive technology's perspective, there's no element that announces itself as actionable. The row's children come through individually, but none of them are tappable, and the row's parent isn't a button. A VoiceOver user can swipe past every element of a row without ever discovering they're inside a navigation control.
 
             `NavigationLink` is the semantic component for "this view navigates somewhere." When SwiftUI sees one in a `NavigationStack`, it automatically:
 
             - Adds the `.isButton` accessibility trait so VoiceOver announces "Button" along with the row's label.
-            - Adds the standard activation hint — VoiceOver speaks "Double-tap to activate."
+            - Adds the standard activation hint, so VoiceOver speaks "Double-tap to activate."
             - **Merges every child into a single accessibility element**, so the user swipes once per row instead of once per avatar, name, role, conference, tag, and star.
             - Hands activation off to the `navigationDestination(for:)` modifier on the enclosing stack.
 
-            That third point is a big deal, and it's easy to overlook. Before this change, one row was seven or eight separate focus stops — with twelve contacts, nearly a hundred swipes to reach the bottom of the list. Wrapping the row in a `NavigationLink` collapses each one to a single stop *for free*, just by using the right component for navigation. You don't need `.accessibilityElement(children: .combine)` to group the row — the link already did it. (Step 4 builds on this: now that the row is one element, you'll take control of *what* it announces.)
+            That third point is a big deal, and it's easy to overlook. Before this change, one row was seven or eight separate focus stops; with twelve contacts, that's nearly a hundred swipes to reach the bottom of the list. Wrapping the row in a `NavigationLink` collapses each one to a single stop *for free*, just by using the right component for navigation. You don't need `.accessibilityElement(children: .combine)` to group the row, because the link already did it. (Step 4 builds on this: now that the row is one element, you'll take control of *what* it announces.)
 
-            None of that is opt-in. You get it by using the right SwiftUI component. The fix in this step is simple — remove the tap gesture and use a `NavigationLink` instead.
+            None of that is opt-in. You get it by using the right SwiftUI component. The fix in this step is simple: remove the tap gesture and use a `NavigationLink` instead.
 
         }
     }
 
     @Section(title: "Wrap the row in `NavigationLink`") {
         @ContentAndMedia {
-            The row currently sits directly inside the `ForEach`, with `.contentShape(.rect)` and `.onTapGesture` doing the navigation. Wrap `ContactRowView(...)` in a value-based `NavigationLink` instead — the row becomes the link's *label content*, and the navigation value is the `Contact` itself. Apply `.buttonStyle(.plain)` so the link doesn't pick up the system's blue tint and capsule highlight.
+            The row currently sits directly inside the `ForEach`, with `.contentShape(.rect)` and `.onTapGesture` doing the navigation. Wrap `ContactRowView(...)` in a value-based `NavigationLink` instead: the row becomes the link's *label content*, and the navigation value is the `Contact` itself. Apply `.buttonStyle(.plain)` so the link doesn't pick up the system's blue tint and capsule highlight.
 
         }
 
@@ -37,7 +37,7 @@
             }
 
             @Step {
-                Wrap `ContactRowView(...)` in `NavigationLink(value: contact) { ... }` and chain `.buttonStyle(.plain)` on the link itself. Delete `.contentShape(.rect)` and `.onTapGesture` — `NavigationLink` is what registers the activation now.
+                Wrap `ContactRowView(...)` in `NavigationLink(value: contact) { ... }` and chain `.buttonStyle(.plain)` on the link itself. Delete `.contentShape(.rect)` and `.onTapGesture`, since `NavigationLink` is what registers the activation now.
 
                 @Code(name: "ContactListView.swift", file: 03-row-after.swift, previousFile: 03-row-before.swift)
             }
@@ -46,7 +46,7 @@
 
     @Section(title: "Restore the typed navigation destination") {
         @ContentAndMedia {
-            With `NavigationLink` emitting `Contact` values into the stack, the destination modifier needs to switch from item-binding to type-based handling. The `@State private var selectedContact: Contact?` is no longer needed — `NavigationStack` owns the navigation state once the link drives it.
+            With `NavigationLink` emitting `Contact` values into the stack, the destination modifier needs to switch from item-binding to type-based handling. The `@State private var selectedContact: Contact?` is no longer needed, because `NavigationStack` owns the navigation state once the link drives it.
 
         }
 
@@ -58,7 +58,7 @@
             }
 
             @Step {
-                Delete the `selectedContact` `@State` line. Change `.navigationDestination(item: $selectedContact)` to `.navigationDestination(for: Contact.self)` — `NavigationStack` will route the value the link emits.
+                Delete the `selectedContact` `@State` line. Change `.navigationDestination(item: $selectedContact)` to `.navigationDestination(for: Contact.self)`, and `NavigationStack` will route the value the link emits.
 
                 @Code(name: "ContactListView.swift", file: 03-cleanup-after.swift, previousFile: 03-cleanup-before.swift)
             }
@@ -67,13 +67,13 @@
 
     @Section(title: "Verify with VoiceOver") {
         @ContentAndMedia {
-            Run with VoiceOver and swipe through the list. Each row is now a single focus stop announced as a Button — the trait that drives "Double-tap to activate." Double-tapping navigates to the detail screen, just like the sighted tap does.
+            Run with VoiceOver and swipe through the list. Each row is now a single focus stop announced as a Button, the trait that drives "Double-tap to activate." Double-tapping navigates to the detail screen, just like the sighted tap does.
 
 The row is now one element, but its label is still the default child concatenation, with the most important information ("Needs follow-up", "Favorited") buried at the end. That's what Step 4 addresses by composing an explicit `.accessibilityLabel`. For now, the *interaction* is fixed even if the announcement still needs work.
 
             The finished snapshot lives in `Steps/03-VoiceOver-TapTargets/Finished/`.
 
-            @Video(source: 03-verify.mp4, poster: 03-verify-poster.png, alt: "The simulator's contact list beside the Accessibility Inspector, a contact row selected as a single element whose combined label ends in 'Button'. Play to see a double-tap navigate to the detail screen.")
+            @Video(source: 03-verify.mp4, poster: 03-verify-poster.png, alt: "The simulator's contact list beside the Accessibility Inspector, a contact row selected as a single element whose composed label ends in 'Button'. Play to see a double-tap navigate to the detail screen.")
         }
     }
 }

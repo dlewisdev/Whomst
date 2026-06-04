@@ -1,4 +1,4 @@
-// in ContactListView.swift — the ForEach inside the LazyVStack
+// in ContactListView.swift: the ForEach inside the LazyVStack
 
 ForEach(filteredContacts) { contact in
     ContactRowView(

@@ -1,4 +1,4 @@
-// in ContactRowView.swift — after Step 1's labels were added
+// in ContactRowView.swift: after Step 1's labels were added
 
 Button(action: onToggleFavorite) {
     Image(systemName: contact.isFavorite ? "star.fill" : "star")

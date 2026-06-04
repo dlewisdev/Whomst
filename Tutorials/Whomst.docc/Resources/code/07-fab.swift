@@ -1,4 +1,4 @@
-// in ContactListView.swift — scale the add button
+// in ContactListView.swift: scale the add button
 
 struct ContactListView: View {
     @Environment(ContactStore.self) private var store

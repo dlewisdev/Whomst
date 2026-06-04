@@ -1,4 +1,4 @@
-// in Views/Components/FilterChip.swift — checkmark, stroke, weight, shadow, isSelected trait
+// in Views/Components/FilterChip.swift: checkmark, stroke, weight, shadow, isSelected trait
 
 struct FilterChip: View {
     let title: String

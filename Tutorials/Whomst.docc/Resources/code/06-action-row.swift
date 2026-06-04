@@ -1,4 +1,4 @@
-// in ContactDetailView.swift — switch HStack/VStack via AnyLayout
+// in ContactDetailView.swift: switch HStack/VStack via AnyLayout
 
 @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 

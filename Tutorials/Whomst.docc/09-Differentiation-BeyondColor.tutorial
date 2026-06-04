@@ -2,18 +2,18 @@
     @Intro(title: "Differentiation Beyond Color") {
         Three places in the starter rely on color alone to communicate meaning:
 
-        - The colorful **tag pills** (blue = Engineer, pink = Designer, purple = PM, etc.) — to a user with deuteranopia, all three look the same muted greenish-brown.
-        - The **selected filter chip** uses a colored background fill — for users with reduced color sensitivity, "selected" and "unselected" blur together.
-        - The tiny **red dot** marking contacts who need follow-up — a red-green color blind user sees the same dot, but the meaning is invisible.
+        - The colorful **tag pills** (blue = Engineer, pink = Designer, purple = PM, etc.): to a user with deuteranopia, all three look the same muted greenish-brown.
+        - The **selected filter chip** uses a colored background fill, so for users with reduced color sensitivity, "selected" and "unselected" blur together.
+        - The tiny **red dot** marking contacts who need follow-up: a red-green color blind user sees the same dot, but the meaning is invisible.
 
         In this final step you'll add shape, weight, and icon cues alongside color so the same information lands for everyone.
 
-        @Image(source: 09-intro.png, alt: "Two iPhone screenshots of the contact list side by side: on the left the starter using color only; on the right the same screen with shape and icon cues added — tag pills carry SF Symbols, the selected filter chip shows a checkmark, and follow-up contacts show a bell icon.")
+        @Image(source: 09-intro.png, alt: "Two iPhone screenshots of the contact list side by side: on the left the starter using color only; on the right the same screen with shape and icon cues added, where tag pills carry SF Symbols, the selected filter chip shows a checkmark, and follow-up contacts show a bell icon.")
     }
 
     @Section(title: "Add a symbol to every tag category") {
         @ContentAndMedia {
-            Each `TagCategory` enum case already has a `color`. Give it a `symbol` too — an SF Symbol that represents the role visually:
+            Each `TagCategory` enum case already has a `color`. Give it a `symbol` too, an SF Symbol that represents the role visually:
 
             - Engineer → `hammer.fill`
             - Designer → `paintpalette.fill`
@@ -25,7 +25,7 @@
             - Open Source → `chevron.left.forwardslash.chevron.right`
             - Looking to Collab → `handshake.fill`
 
-            Then update `TagPill` to render the symbol next to the text. Now even users who can't distinguish the colors can read the icon and the label. Mark the symbol as `.accessibilityHidden(true)` so VoiceOver doesn't double-announce — the text label already conveys the meaning.
+            Then update `TagPill` to render the symbol next to the text. Now even users who can't distinguish the colors can read the icon and the label. Mark the symbol as `.accessibilityHidden(true)` so VoiceOver doesn't double-announce, since the text label already conveys the meaning.
 
             @Image(source: 09-tags.png, alt: "A row of nine tag pills, each showing both an SF Symbol and a text label on a colored capsule background.")
         }
@@ -44,7 +44,7 @@
             }
 
             @Step {
-                Update the tag toggle in `AddEditContactView` to also use the symbol — consistency matters.
+                Update the tag toggle in `AddEditContactView` to also use the symbol, since consistency matters.
 
                 @Code(name: "AddEditContactView.swift", file: 09-tagtoggle.swift)
             }
@@ -82,7 +82,7 @@
 
     @Section(title: "Replace the red dot with a shape-bearing icon") {
         @ContentAndMedia {
-            The 7-point red circle marking "needs follow-up" in each row, and the 10-point red dot in the detail header, both encode meaning purely through color. Replace them with `bell.badge.fill` rendered in orange with `.symbolRenderingMode(.hierarchical)`. Now the meaning is carried by an unmistakable bell-and-dot shape — the orange color reinforces but doesn't carry the message alone.
+            The 7-point red circle marking "needs follow-up" in each row, and the 10-point red dot in the detail header, both encode meaning purely through color. Replace them with `bell.badge.fill` rendered in orange with `.symbolRenderingMode(.hierarchical)`. Now the meaning is carried by an unmistakable bell-and-dot shape, and the orange color reinforces but doesn't carry the message alone.
 
             VoiceOver users already get this information from the composed label string ("Needs follow-up") set in Step 4, so mark the icon as `.accessibilityHidden(true)`.
 
@@ -97,7 +97,7 @@
             }
 
             @Step {
-                Do the same in `ContactDetailView.swift`'s header — but use `.font(.title3)` so the icon scales up to match the large title.
+                Do the same in `ContactDetailView.swift`'s header, but use `.font(.title3)` so the icon scales up to match the large title.
 
                 @Code(name: "ContactDetailView.swift", file: 09-detail-followup.swift)
             }
@@ -106,11 +106,11 @@
 
     @Section(title: "Verify with color filters") {
         @ContentAndMedia {
-            Open Settings → Accessibility → Display & Text Size → Color Filters and turn on Deuteranopia, then Protanopia, then Tritanopia, then Grayscale. The tag pills, filter chips, and follow-up indicator should all remain interpretable in every mode — the shape and label cues do the work that color used to.
+            Open Settings → Accessibility → Display & Text Size → Color Filters and turn on Deuteranopia, then Protanopia, then Tritanopia, then Grayscale. The tag pills, filter chips, and follow-up indicator should all remain interpretable in every mode, because the shape and label cues do the work that color used to.
 
-            Also flip on Settings → Accessibility → Display & Text Size → Differentiate Without Color. Your app should look great with no additional changes, because you didn't gate any cue on the `differentiateWithoutColor` environment flag — instead you added shape/label cues unconditionally. That's the more inclusive default: users without explicit settings still benefit from the better design.
+            Also flip on Settings → Accessibility → Display & Text Size → Differentiate Without Color. Your app should look great with no additional changes, because you didn't gate any cue on the `differentiateWithoutColor` environment flag; instead you added shape/label cues unconditionally. That's the more inclusive default: users without explicit settings still benefit from the better design.
 
-            The finished snapshot lives in `Steps/09-Differentiation-BeyondColor/Finished/`. This is the same code as the root `Whomst/` project — the full accessible app you've been building toward.
+            The finished snapshot lives in `Steps/09-Differentiation-BeyondColor/Finished/`. This is the same code as the root `Whomst/` project: the full accessible app you've been building toward.
 
             @Image(source: 09-verify.png, alt: "The Whomst list screen with Grayscale color filter enabled, showing all UI elements remain distinguishable through shape and weight cues alone.")
         }

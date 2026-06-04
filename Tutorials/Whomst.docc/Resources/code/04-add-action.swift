@@ -1,4 +1,4 @@
-// in ContactRowView.swift — final state: composed label + custom favorite action
+// in ContactRowView.swift: final state, composed label + custom favorite action
 
 var body: some View {
     HStack(spacing: 12) {
