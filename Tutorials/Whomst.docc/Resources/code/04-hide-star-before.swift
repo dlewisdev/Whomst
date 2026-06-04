@@ -1,4 +1,5 @@
-// in ContactRowView.swift
+// in ContactRowView.swift: hide the visible star Button so its own label
+// isn't pulled into the row's composed announcement.
 
 Button(action: onToggleFavorite) {
     Image(systemName: contact.isFavorite ? "star.fill" : "star")
@@ -7,8 +8,3 @@ Button(action: onToggleFavorite) {
         .symbolEffect(.bounce, value: contact.isFavorite)
 }
 .buttonStyle(.plain)
-.accessibilityLabel(
-    contact.isFavorite
-        ? "Unfavorite \(contact.fullName)"
-        : "Favorite \(contact.fullName)"
-)

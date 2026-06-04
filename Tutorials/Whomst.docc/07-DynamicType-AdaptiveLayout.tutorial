@@ -43,19 +43,19 @@
             @Step {
                 Extract the content (name, role, conference, tags) into a `contentStack` computed property so it can be reused in both layouts.
 
-                @Code(name: "ContactRowView.swift", file: 07-extract-content.swift, previousFile: 07-env-after.swift)
+                @Code(name: "ContactRowView.swift", file: 07-extract-content.swift, previousFile: 07-extract-content-before.swift)
             }
 
             @Step {
                 Build the vertical layout: avatar + favorite on top, contentStack underneath. Build the horizontal layout: avatar, contentStack, favorite. Use the existing `contentStack` in both.
 
-                @Code(name: "ContactRowView.swift", file: 07-two-layouts.swift, previousFile: 07-extract-content.swift)
+                @Code(name: "ContactRowView.swift", file: 07-two-layouts.swift, previousFile: 07-two-layouts-before.swift)
             }
 
             @Step {
                 Make the tags row adapt too: `HStack` at standard sizes, `VStack(alignment: .leading)` at accessibility sizes.
 
-                @Code(name: "ContactRowView.swift", file: 07-tags-adapt.swift, previousFile: 07-two-layouts.swift)
+                @Code(name: "ContactRowView.swift", file: 07-tags-adapt.swift, previousFile: 07-tags-adapt-before.swift)
             }
         }
     }
@@ -79,7 +79,7 @@
             @Step {
                 Update the action button to show its title text alongside the icon at accessibility sizes.
 
-                @Code(name: "ContactDetailView.swift", file: 07-action-button.swift, previousFile: 07-action-row.swift)
+                @Code(name: "ContactDetailView.swift", file: 07-action-button.swift, previousFile: 07-action-button-before.swift)
             }
         }
     }

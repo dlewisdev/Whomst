@@ -1,4 +1,4 @@
-// in ContactRowView.swift: follow-up shown as a bare red dot (color only)
+// in ContactRowView.swift: replace the red dot with bell.badge.fill
 
 HStack(spacing: 6) {
     Text(contact.fullName)

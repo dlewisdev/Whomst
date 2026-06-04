@@ -43,13 +43,13 @@
             @Step {
                 Mark the star `Button` as accessibility-hidden so it doesn't appear as a separate element.
 
-                @Code(name: "ContactRowView.swift", file: 04-hide-star.swift, previousFile: 04-combine-after.swift)
+                @Code(name: "ContactRowView.swift", file: 04-hide-star.swift, previousFile: 04-hide-star-before.swift)
             }
 
             @Step {
                 Attach a custom accessibility action named "Favorite" or "Unfavorite" to the outer `HStack`. The action wraps `onToggleFavorite()` and inherits the contact context from the surrounding view.
 
-                @Code(name: "ContactRowView.swift", file: 04-add-action.swift, previousFile: 04-hide-star.swift)
+                @Code(name: "ContactRowView.swift", file: 04-add-action.swift, previousFile: 04-add-action-before.swift)
             }
         }
     }
@@ -73,7 +73,7 @@
             @Step {
                 Apply the same combine pattern to the Met-at section's `HStack`.
 
-                @Code(name: "ContactDetailView.swift", file: 04-metat.swift, previousFile: 04-header.swift)
+                @Code(name: "ContactDetailView.swift", file: 04-metat.swift, previousFile: 04-metat-before.swift)
             }
         }
     }

@@ -1,4 +1,4 @@
-// in ContactRowView.swift: body before adapting to Dynamic Type
+// in ContactRowView.swift: read the user's Dynamic Type setting
 
 struct ContactRowView: View {
     let contact: Contact

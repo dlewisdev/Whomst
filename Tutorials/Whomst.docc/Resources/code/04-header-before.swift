@@ -1,4 +1,4 @@
-// in ContactDetailView.swift: the header before grouping (five separate elements)
+// in ContactDetailView.swift
 
 private var header: some View {
     VStack(spacing: 12) {

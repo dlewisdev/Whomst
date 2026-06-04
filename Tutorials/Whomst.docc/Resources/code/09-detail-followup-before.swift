@@ -1,4 +1,4 @@
-// in ContactDetailView.swift: follow-up shown as a bare red dot (color only)
+// in ContactDetailView.swift: same icon swap, sized for the large title
 
 HStack(spacing: 8) {
     Text(contact.fullName)

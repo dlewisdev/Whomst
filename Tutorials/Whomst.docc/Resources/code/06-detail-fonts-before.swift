@@ -1,4 +1,4 @@
-// in ContactDetailView.swift: literal sizes that don't scale with Dynamic Type
+// in ContactDetailView.swift: semantic styles throughout
 
 private var header: some View {
     VStack(spacing: 12) {

@@ -1,4 +1,4 @@
-// in ContactRowView.swift: extract reusable content stack
+// in ContactRowView.swift: adapt tags row to wrap vertically at AX sizes
 
 private var contentStack: some View {
     VStack(alignment: .leading, spacing: 4) {

@@ -1,4 +1,4 @@
-// in AddEditContactView.swift: text-only toggle, color is the sole cue
+// in AddEditContactView.swift: keep tag selection consistent with TagPill
 
 private func tagToggle(_ tag: TagCategory) -> some View {
     let isSelected = selectedTags.contains(tag)

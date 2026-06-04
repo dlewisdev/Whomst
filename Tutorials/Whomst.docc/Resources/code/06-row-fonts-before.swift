@@ -1,4 +1,4 @@
-// in ContactRowView.swift: literal sizes that don't scale with Dynamic Type
+// in ContactRowView.swift: semantic styles instead of literal sizes
 
 var body: some View {
     HStack(spacing: 12) {

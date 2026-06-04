@@ -1,4 +1,4 @@
-// in ContactDetailView.swift: switch HStack/VStack via AnyLayout
+// in ContactDetailView.swift: show title text alongside icon at AX sizes
 
 @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 

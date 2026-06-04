@@ -1,4 +1,4 @@
-// in ContactListView.swift: the add button at a fixed 60-point size
+// in ContactListView.swift: scale the add button and its plus icon
 
 struct ContactListView: View {
     @Environment(ContactStore.self) private var store
