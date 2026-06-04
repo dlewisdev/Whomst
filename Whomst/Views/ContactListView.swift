@@ -139,7 +139,7 @@ struct ContactListView: View {
             showAddContact = true
         } label: {
             Image(systemName: "plus")
-                .font(.title2.bold())
+                .font(.system(size: 22, weight: .bold))
                 .foregroundStyle(.white)
                 .frame(width: fabSize, height: fabSize)
                 .background(Color.accentColor.gradient, in: Circle())
