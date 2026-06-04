@@ -6,21 +6,7 @@ var body: some View {
             .accessibilityHidden(true)
 
         VStack(alignment: .leading, spacing: 4) {
-            HStack(spacing: 6) {
-                Text(contact.fullName)
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundStyle(.primary)
-                if contact.needsFollowUp {
-                    Circle().fill(.red).frame(width: 7, height: 7)
-                }
-            }
-
-            Text("\(contact.role) · \(contact.company)")
-                .font(.system(size: 13))
-                .foregroundStyle(.secondary)
-                .lineLimit(1)
-
-            // ...conference and tags omitted for brevity
+            // ...name, role, conference, tags...
         }
 
         Spacer(minLength: 0)
