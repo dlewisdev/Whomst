@@ -1,5 +1,5 @@
-// in ContactRowView.swift — hide the visible star Button from accessibility
-// so the .combine modifier doesn't include it as a child element.
+// in ContactRowView.swift — hide the visible star Button so its own label
+// isn't pulled into the row's composed announcement.
 
 Button(action: onToggleFavorite) {
     Image(systemName: contact.isFavorite ? "star.fill" : "star")

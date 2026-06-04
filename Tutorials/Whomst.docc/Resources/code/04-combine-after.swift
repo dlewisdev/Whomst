@@ -20,7 +20,6 @@ var body: some View {
     }
     .padding(.vertical, 10)
     .contentShape(.rect)
-    .accessibilityElement(children: .combine)
     .accessibilityLabel(combinedLabel)
 }
 

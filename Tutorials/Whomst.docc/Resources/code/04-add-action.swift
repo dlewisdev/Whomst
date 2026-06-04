@@ -1,4 +1,4 @@
-// in ContactRowView.swift — final state: combined row with custom favorite action
+// in ContactRowView.swift — final state: composed label + custom favorite action
 
 var body: some View {
     HStack(spacing: 12) {
@@ -19,7 +19,6 @@ var body: some View {
     }
     .padding(.vertical, 10)
     .contentShape(.rect)
-    .accessibilityElement(children: .combine)
     .accessibilityLabel(combinedLabel)
     .accessibilityAction(named: contact.isFavorite ? "Unfavorite" : "Favorite") {
         onToggleFavorite()

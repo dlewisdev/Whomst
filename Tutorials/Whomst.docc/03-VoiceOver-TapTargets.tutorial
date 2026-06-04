@@ -13,10 +13,12 @@
 
             - Adds the `.isButton` accessibility trait so VoiceOver announces "Button" along with the row's label.
             - Adds the standard activation hint — VoiceOver speaks "Double-tap to activate."
-            - Combines the children into a single focus stop, so the user swipes once per row instead of once per element.
+            - **Merges every child into a single accessibility element**, so the user swipes once per row instead of once per avatar, name, role, conference, tag, and star.
             - Hands activation off to the `navigationDestination(for:)` modifier on the enclosing stack.
 
-            None of that is opt-in. You get it by using the right SwiftUI component. The fix in this step is simple — *remove* the tap gesture and put `NavigationLink` back where it belongs.
+            That third point is a big deal, and it's easy to overlook. Before this change, one row was seven or eight separate focus stops — with twelve contacts, nearly a hundred swipes to reach the bottom of the list. Wrapping the row in a `NavigationLink` collapses each one to a single stop *for free*, just by using the right component for navigation. You don't need `.accessibilityElement(children: .combine)` to group the row — the link already did it. (Step 4 builds on this: now that the row is one element, you'll take control of *what* it announces.)
+
+            None of that is opt-in. You get it by using the right SwiftUI component. The fix in this step is simple — remove the tap gesture and use a `NavigationLink` instead.
 
         }
     }
@@ -67,7 +69,7 @@
         @ContentAndMedia {
             Run with VoiceOver and swipe through the list. Each row is now a single focus stop announced as a Button — the trait that drives "Double-tap to activate." Double-tapping navigates to the detail screen, just like the sighted tap does.
 
-            The combined label is still the default child concatenation, with the most important information ("Needs follow-up", "Favorited") buried at the end. That's what Step 4 (Grouping) addresses by composing an explicit `.accessibilityLabel`. For now, the *interaction* is fixed even if the *announcement* still needs work.
+The row is now one element, but its label is still the default child concatenation, with the most important information ("Needs follow-up", "Favorited") buried at the end. That's what Step 4 addresses by composing an explicit `.accessibilityLabel`. For now, the *interaction* is fixed even if the announcement still needs work.
 
             The finished snapshot lives in `Steps/03-VoiceOver-TapTargets/Finished/`.
 

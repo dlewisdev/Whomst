@@ -62,7 +62,6 @@ struct ContactRowView: View {
         }
         .padding(.vertical, 10)
         .contentShape(.rect)
-        .accessibilityElement(children: .combine)
         .accessibilityLabel(combinedLabel)
         .accessibilityAction(named: contact.isFavorite ? "Unfavorite" : "Favorite") {
             onToggleFavorite()

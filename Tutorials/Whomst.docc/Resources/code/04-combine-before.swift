@@ -1,4 +1,4 @@
-// in ContactRowView.swift — after Step 1's labels were added
+// in ContactRowView.swift
 
 var body: some View {
     HStack(spacing: 12) {
