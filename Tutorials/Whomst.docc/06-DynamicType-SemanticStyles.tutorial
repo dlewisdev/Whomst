@@ -39,13 +39,13 @@
             @Step {
                 In `ContactRowView.swift`, replace the name's `.font(.system(size: 16, weight: .semibold))` with `.font(.headline)`, the role/company `.font(.system(size: 13))` with `.font(.subheadline)`, and the conference line's small fonts with `.caption` and `.caption2`.
 
-                @Code(name: "ContactRowView.swift", file: 06-row-fonts.swift)
+                @Code(name: "ContactRowView.swift", file: 06-row-fonts.swift, previousFile: 06-row-fonts-before.swift)
             }
 
             @Step {
                 In `ContactDetailView.swift`, replace the 28pt name with `.largeTitle.bold()`, the role/company with `.body` and `.body.weight(.semibold)`, and the section titles with `.caption.weight(.bold)`.
 
-                @Code(name: "ContactDetailView.swift", file: 06-detail-fonts.swift)
+                @Code(name: "ContactDetailView.swift", file: 06-detail-fonts.swift, previousFile: 06-detail-fonts-before.swift)
             }
         }
     }
@@ -61,13 +61,13 @@
             @Step {
                 In `TagPill.swift`, replace `.font(.system(size: 12, weight: .semibold))` with `.font(.caption.weight(.semibold))`.
 
-                @Code(name: "TagPill.swift", file: 06-tagpill.swift)
+                @Code(name: "TagPill.swift", file: 06-tagpill.swift, previousFile: 06-tagpill-before.swift)
             }
 
             @Step {
                 In `FilterChip.swift` and `AddEditContactView.swift` tag toggles, replace `.font(.system(size: 14, weight: .semibold))` and `.font(.system(size: 13, weight: .semibold))` with `.font(.subheadline.weight(.semibold))`.
 
-                @Code(name: "FilterChip.swift", file: 06-filterchip.swift)
+                @Code(name: "FilterChip.swift", file: 06-filterchip.swift, previousFile: 06-filterchip-before.swift)
             }
         }
     }

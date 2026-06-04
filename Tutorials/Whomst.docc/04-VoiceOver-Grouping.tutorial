@@ -67,7 +67,7 @@
             @Step {
                 Apply the combine pattern to the detail header VStack and mark it as a header.
 
-                @Code(name: "ContactDetailView.swift", file: 04-header.swift)
+                @Code(name: "ContactDetailView.swift", file: 04-header.swift, previousFile: 04-header-before.swift)
             }
 
             @Step {

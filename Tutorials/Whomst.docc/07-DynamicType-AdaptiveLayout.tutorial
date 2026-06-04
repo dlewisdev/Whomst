@@ -73,7 +73,7 @@
             @Step {
                 Use `AnyLayout` to switch the action row between `HStackLayout` and `VStackLayout` based on `dynamicTypeSize.isAccessibilitySize`.
 
-                @Code(name: "ContactDetailView.swift", file: 07-action-row.swift)
+                @Code(name: "ContactDetailView.swift", file: 07-action-row.swift, previousFile: 07-action-row-before.swift)
             }
 
             @Step {

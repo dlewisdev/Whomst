@@ -30,7 +30,7 @@
             @Step {
                 Update the call site in `ContactDetailView.swift` (the detail header uses `size: 96`) to use the new `baseSize` argument label.
 
-                @Code(name: "ContactDetailView.swift", file: 08-avatar-callsite.swift)
+                @Code(name: "ContactDetailView.swift", file: 08-avatar-callsite.swift, previousFile: 08-avatar-callsite-before.swift)
             }
         }
     }
@@ -48,13 +48,13 @@
             @Step {
                 In `ContactListView.swift`, declare `@ScaledMetric private var addButtonSize: CGFloat = 60` and use it for both the button's frame and the plus symbol inside it, so the icon grows in proportion with the circle (`addButtonSize * 0.4`) rather than staying frozen.
 
-                @Code(name: "ContactListView.swift", file: 08-add-button.swift)
+                @Code(name: "ContactListView.swift", file: 08-add-button.swift, previousFile: 08-add-button-before.swift)
             }
 
             @Step {
                 In `ContactDetailView.swift`, declare `@ScaledMetric` properties for `actionButtonSize` (52) and `metAtIconSize` (44), and use them in the corresponding frames.
 
-                @Code(name: "ContactDetailView.swift", file: 08-detail-metrics.swift)
+                @Code(name: "ContactDetailView.swift", file: 08-detail-metrics.swift, previousFile: 08-detail-metrics-before.swift)
             }
         }
     }

@@ -34,19 +34,19 @@
             @Step {
                 In `Models/TagCategory.swift`, add a `symbol: String` computed property that returns the SF Symbol name for each case.
 
-                @Code(name: "TagCategory.swift", file: 09-symbol-property.swift)
+                @Code(name: "TagCategory.swift", file: 09-symbol-property.swift, previousFile: 09-symbol-property-before.swift)
             }
 
             @Step {
                 Update `TagPill` to render the symbol next to the label.
 
-                @Code(name: "TagPill.swift", file: 09-tagpill.swift)
+                @Code(name: "TagPill.swift", file: 09-tagpill.swift, previousFile: 09-tagpill-before.swift)
             }
 
             @Step {
                 Update the tag toggle in `AddEditContactView` to also use the symbol, since consistency matters.
 
-                @Code(name: "AddEditContactView.swift", file: 09-tagtoggle.swift)
+                @Code(name: "AddEditContactView.swift", file: 09-tagtoggle.swift, previousFile: 09-tagtoggle-before.swift)
             }
         }
     }
@@ -93,13 +93,13 @@
             @Step {
                 In `ContactRowView.swift`, replace the `Circle().fill(.red).frame(width: 7, height: 7)` with `Image(systemName: "bell.badge.fill")`.
 
-                @Code(name: "ContactRowView.swift", file: 09-row-followup.swift)
+                @Code(name: "ContactRowView.swift", file: 09-row-followup.swift, previousFile: 09-row-followup-before.swift)
             }
 
             @Step {
                 Do the same in `ContactDetailView.swift`'s header, but use `.font(.title3)` so the icon scales up to match the large title.
 
-                @Code(name: "ContactDetailView.swift", file: 09-detail-followup.swift)
+                @Code(name: "ContactDetailView.swift", file: 09-detail-followup.swift, previousFile: 09-detail-followup-before.swift)
             }
         }
     }

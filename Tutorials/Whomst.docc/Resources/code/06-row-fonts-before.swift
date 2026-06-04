@@ -1,4 +1,4 @@
-// in ContactRowView.swift: semantic styles instead of literal sizes
+// in ContactRowView.swift: literal sizes that don't scale with Dynamic Type
 
 var body: some View {
     HStack(spacing: 12) {
@@ -8,7 +8,7 @@ var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             HStack(spacing: 6) {
                 Text(contact.fullName)
-                    .font(.headline)
+                    .font(.system(size: 16, weight: .semibold))
                     .foregroundStyle(.primary)
                 if contact.needsFollowUp {
                     Circle().fill(.red).frame(width: 7, height: 7)
@@ -16,17 +16,17 @@ var body: some View {
             }
 
             Text("\(contact.role) · \(contact.company)")
-                .font(.subheadline)
+                .font(.system(size: 13))
                 .foregroundStyle(.secondary)
                 .lineLimit(1)
 
             if let conference {
                 HStack(spacing: 5) {
                     Image(systemName: "calendar")
-                        .font(.caption2)
+                        .font(.system(size: 10))
                         .accessibilityHidden(true)
                     Text("\(conference.shortName) · \(contact.dateMet.formatted(date: .abbreviated, time: .omitted))")
-                        .font(.caption)
+                        .font(.system(size: 11))
                 }
                 .foregroundStyle(.tertiary)
             }
@@ -45,7 +45,7 @@ var body: some View {
 
         Button(action: onToggleFavorite) {
             Image(systemName: contact.isFavorite ? "star.fill" : "star")
-                .font(.title3)
+                .font(.system(size: 18))
                 .foregroundStyle(contact.isFavorite ? .yellow : .secondary)
                 .symbolEffect(.bounce, value: contact.isFavorite)
         }
