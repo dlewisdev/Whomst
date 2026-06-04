@@ -5,7 +5,7 @@ struct ContactListView: View {
     @State private var searchText = ""
     @State private var selectedFilter: ContactFilter = .all
     @State private var showAddContact = false
-    @ScaledMetric private var fabSize: CGFloat = 60
+    @ScaledMetric private var addButtonSize: CGFloat = 60
 
     enum ContactFilter: String, CaseIterable, Identifiable {
         case all = "All"
@@ -139,9 +139,12 @@ struct ContactListView: View {
             showAddContact = true
         } label: {
             Image(systemName: "plus")
-                .font(.system(size: 22, weight: .bold))
+                .resizable()
+                .scaledToFit()
+                .fontWeight(.bold)
+                .frame(width: addButtonSize * 0.4, height: addButtonSize * 0.4)
                 .foregroundStyle(.white)
-                .frame(width: fabSize, height: fabSize)
+                .frame(width: addButtonSize, height: addButtonSize)
                 .background(Color.accentColor.gradient, in: Circle())
                 .shadow(color: Color.accentColor.opacity(0.35), radius: 10, y: 4)
         }

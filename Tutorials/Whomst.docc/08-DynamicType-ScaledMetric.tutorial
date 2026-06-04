@@ -41,14 +41,14 @@
 
             Resist scaling everything; only scale things that should grow with text. A 1-point divider should stay 1 point. The 20-point edge padding around your scroll view should usually stay 20 points (it's about layout structure, not text proportion).
 
-            @Image(source: 08-fab-scaled.png, alt: "The floating add button at default and AX5 Dynamic Type, showing it grows from 60pt to a much larger size.")
+            @Image(source: 08-add-button-scaled.png, alt: "The floating add button at default and AX5 Dynamic Type, showing both the circle and the plus icon inside grow proportionally from their 60pt base size.")
         }
 
         @Steps {
             @Step {
-                In `ContactListView.swift`, declare `@ScaledMetric private var fabSize: CGFloat = 60` and use it in the add button's frame.
+                In `ContactListView.swift`, declare `@ScaledMetric private var addButtonSize: CGFloat = 60` and use it for both the button's frame and the plus symbol inside it, so the icon grows in proportion with the circle (`addButtonSize * 0.4`) rather than staying frozen.
 
-                @Code(name: "ContactListView.swift", file: 08-fab.swift)
+                @Code(name: "ContactListView.swift", file: 08-add-button.swift)
             }
 
             @Step {

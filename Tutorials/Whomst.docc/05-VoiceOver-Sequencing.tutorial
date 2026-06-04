@@ -41,13 +41,13 @@
             @Step {
                 Open `ContactListView.swift` and find `addButton`.
 
-                @Code(name: "ContactListView.swift", file: 05-fab-before.swift)
+                @Code(name: "ContactListView.swift", file: 05-add-button-before.swift)
             }
 
             @Step {
                 Add `.accessibilitySortPriority(1)`. VoiceOver will now land on Add new contact first, then move into the list.
 
-                @Code(name: "ContactListView.swift", file: 05-fab-after.swift, previousFile: 05-fab-before.swift)
+                @Code(name: "ContactListView.swift", file: 05-add-button-after.swift, previousFile: 05-add-button-before.swift)
             }
         }
     }

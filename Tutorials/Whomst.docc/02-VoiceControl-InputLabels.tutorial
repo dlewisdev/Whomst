@@ -46,20 +46,20 @@
 
             Give it three short alternatives: the verb ("Add"), the noun ("New contact"), and a visual descriptor ("Plus") for users who refer to controls by appearance rather than function.
 
-            @Image(source: 02-fab-names.png, alt: "Accessibility Inspector beside the simulator showing the floating Add button's accessibility label 'Add new contact' and its user input labels 'Add', 'New contact', and 'Plus'.")
+            @Image(source: 02-add-button-names.png, alt: "Accessibility Inspector beside the simulator showing the floating Add button's accessibility label 'Add new contact' and its user input labels 'Add', 'New contact', and 'Plus'.")
         }
 
         @Steps {
             @Step {
                 Open `Views/ContactListView.swift` and find `addButton`.
 
-                @Code(name: "ContactListView.swift", file: 02-fab-before.swift)
+                @Code(name: "ContactListView.swift", file: 02-add-button-before.swift)
             }
 
             @Step {
                 Add `.accessibilityInputLabels(["Add", "New contact", "Plus"])` after the existing `.accessibilityLabel`. Note: The order matters slightly, since Voice Control prefers earlier labels for its Show Names overlay, so put the most obvious command first.
 
-                @Code(name: "ContactListView.swift", file: 02-fab-after.swift, previousFile: 02-fab-before.swift)
+                @Code(name: "ContactListView.swift", file: 02-add-button-after.swift, previousFile: 02-add-button-before.swift)
             }
         }
     }

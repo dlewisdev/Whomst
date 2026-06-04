@@ -73,7 +73,7 @@
                 
                 Note: `.accessibilityHint` should not be used to convey necessary information because there is a setting allowing users to disable hints.
 
-                @Code(name: "ContactListView.swift", file: 01-fab-after.swift, previousFile: 01-fab-before.swift)
+                @Code(name: "ContactListView.swift", file: 01-add-button-after.swift, previousFile: 01-add-button-before.swift)
             }
 
             @Step {
