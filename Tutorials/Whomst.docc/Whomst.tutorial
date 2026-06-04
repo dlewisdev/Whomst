@@ -19,9 +19,9 @@
     @Chapter(name: "Dynamic Type") {
         Dynamic Type lets users scale text up or down system-wide. Apps that respect it adapt their layout, scale their visual elements, and use semantic text styles instead of hardcoded sizes.
 
-        @TutorialReference(tutorial: "doc:06-DynamicType-AdaptiveLayout")
-        @TutorialReference(tutorial: "doc:07-DynamicType-ScaledMetric")
-        @TutorialReference(tutorial: "doc:08-DynamicType-SemanticStyles")
+        @TutorialReference(tutorial: "doc:06-DynamicType-SemanticStyles")
+        @TutorialReference(tutorial: "doc:07-DynamicType-AdaptiveLayout")
+        @TutorialReference(tutorial: "doc:08-DynamicType-ScaledMetric")
     }
 
     @Chapter(name: "Differentiation Beyond Color") {

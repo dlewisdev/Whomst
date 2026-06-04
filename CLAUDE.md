@@ -20,9 +20,9 @@ Steps/                           ← workshop snapshots, one per step
   03-VoiceOver-TapTargets/{Starter,Finished}/
   04-VoiceOver-Grouping/{Starter,Finished}/
   05-VoiceOver-Sequencing/{Starter,Finished}/
-  06-DynamicType-AdaptiveLayout/{Starter,Finished}/
-  07-DynamicType-ScaledMetric/{Starter,Finished}/
-  08-DynamicType-SemanticStyles/{Starter,Finished}/
+  06-DynamicType-SemanticStyles/{Starter,Finished}/
+  07-DynamicType-AdaptiveLayout/{Starter,Finished}/
+  08-DynamicType-ScaledMetric/{Starter,Finished}/
   09-Differentiation-BeyondColor/{Starter,Finished}/
 Tutorials/Whomst.docc/   ← DocC tutorial catalog (Whomst.tutorial TOC + 9 step .tutorial files)
 ```
@@ -49,9 +49,9 @@ Each step in `Steps/` adds one accessibility technique on top of the previous:
 3. **VoiceOver Tap Targets** — restore `NavigationLink(value:)` wrapping around the row (the starter chain navigates via `.onTapGesture` + `@State selectedContact` + `.navigationDestination(item:)`, which is invisible to VoiceOver); using `NavigationLink` brings back the `.isButton` trait, the "double-tap to activate" hint, and a single focus stop per row
 4. **VoiceOver Grouping** — `.accessibilityElement(children: .combine)` + composed `.accessibilityLabel` on row and detail header; `.accessibilityAction(named:)` for star
 5. **VoiceOver Sequencing** — reorder composed labels (follow-up first); `.accessibilitySortPriority(1)` on FAB
-6. **Dynamic Type Adaptive Layout** — `@Environment(\.dynamicTypeSize)`, switch HStack→VStack at `isAccessibilitySize`; `AnyLayout` for the action row
-7. **`@ScaledMetric`** — proportional avatar/FAB/action-button sizing
-8. **Semantic Text Styles** — replace `.font(.system(size:))` with `.headline`/`.subheadline`/`.body`/`.caption`/etc.
+6. **Semantic Text Styles** — replace `.font(.system(size:))` with `.headline`/`.subheadline`/`.body`/`.caption`/etc. (done first so text actually scales, making the later layout/sizing problems visible)
+7. **Dynamic Type Adaptive Layout** — `@Environment(\.dynamicTypeSize)`, switch HStack→VStack at `isAccessibilitySize`; `AnyLayout` for the action row
+8. **`@ScaledMetric`** — proportional avatar/FAB/action-button sizing
 9. **Differentiation Beyond Color** — SF Symbol per `TagCategory`; selected `FilterChip` gets stroke + checkmark + bold + shadow + `.isSelected` trait; follow-up red dot becomes `bell.badge.fill`
 
 When evolving a step, edit `Whomst/` (the live final), then re-snapshot affected step folders so each `Starter` matches the previous `Finished`.
