@@ -79,9 +79,15 @@
             }
 
             @Step {
-                In `ContactDetailView.swift`, update the `actionButton` helper to take a `label` parameter, and pass a contact-specific label at each call site ("Call Maya Chen", "Email Maya Chen", etc.).
+                In `ContactDetailView.swift`, give the `actionButton` helper a `label` parameter and apply it with `.accessibilityLabel(label)`. This is the single place each button's label gets attached.
 
-                @Code(name: "ContactDetailView.swift", file: 01-actions-after.swift, previousFile: 01-actions-before.swift)
+                @Code(name: "ContactDetailView.swift", file: 01-actions-helper.swift, previousFile: 01-actions-helper-before.swift)
+            }
+
+            @Step {
+                Now pass a contact-specific label at each call site in `actionRow` ("Call Maya Chen", "Email Maya Chen", and so on), so every action button announces exactly who it acts on.
+
+                @Code(name: "ContactDetailView.swift", file: 01-actions-callsites.swift, previousFile: 01-actions-callsites-before.swift)
             }
 
             @Step {
