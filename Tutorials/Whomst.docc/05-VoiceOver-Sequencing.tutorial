@@ -8,7 +8,7 @@
 
     @Section(title: "Reorder the row's combined label") {
         @ContentAndMedia {
-            The composed label string from Step 4 places fields in source order: name, role, company, conference, date, tags, then follow-up and favorite at the end. For VoiceOver users navigating a long list, that means they hear "Maya Chen, Senior iOS Engineer at Mercury, Met at WWDC25 on Jun 9, 2025, Tags: Engineer, Open Source, Needs follow-up", and the most actionable bit comes last.
+            The composed label string from Step 4 places fields in source order: name, role, company, conference, date, tags, then follow-up and favorite at the end. For VoiceOver users navigating a long list, that means they hear "Maya Chen, Senior iOS Engineer at Tellr, Met at WWDC25 on Jun 9, 2025, Tags: Engineer, Open Source, Needs follow-up", and the most actionable bit comes last.
 
             Reorder the parts so name → status flags → role + company → conference → tags. VoiceOver users can flick to the next row as soon as they've heard enough to decide if this contact matters right now.
 

@@ -80,11 +80,11 @@
 
     @Section(title: "Verify with VoiceOver") {
         @ContentAndMedia {
-Check a row in the Accessibility Inspector: it's now a single element whose label reads everything at once, with "Favorite"/"Unfavorite" listed under its custom actions. On a physical device with VoiceOver on, each row is one focus stop that announces it all in one pass: *"Maya Chen. Senior iOS Engineer at Mercury. Met at WWDC25 on Jun 9, 2025. Tags: Engineer, Open Source. Needs follow-up. Favorited."* Double-tap to navigate to the detail; swipe up to find the "Unfavorite" custom action and double-tap to invoke it.
+Check a row in the Accessibility Inspector: it's now a single element whose label reads everything at once, with "Favorite"/"Unfavorite" listed under its custom actions. On a physical device with VoiceOver on, each row is one focus stop that announces it all in one pass: *"Maya Chen. Senior iOS Engineer at Tellr. Met at WWDC25 on Jun 9, 2025. Tags: Engineer, Open Source. Needs follow-up. Favorited."* Double-tap to navigate to the detail; swipe up to find the "Unfavorite" custom action and double-tap to invoke it.
 
             The finished snapshot lives in `Steps/04-VoiceOver-Grouping/Finished/`.
 
-            @Video(source: 04-verify.mp4, poster: 04-verify-poster.png, alt: "A contact row focused by VoiceOver with the caption panel reading the full composed announcement beginning 'Sam Reilly. Developer Advocate at Vapor. Met at iOSDevHH…'. Play to hear it read in one pass and reveal the 'Unfavorite' custom action.")
+            @Video(source: 04-verify.mp4, poster: 04-verify-poster.png, alt: "A contact row focused by VoiceOver with the caption panel reading the full composed announcement beginning 'Sam Reilly. Developer Advocate at Tidewater. Met at iOSDevHH…'. Play to hear it read in one pass and reveal the 'Unfavorite' custom action.")
         }
     }
 }
