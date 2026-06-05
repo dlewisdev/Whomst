@@ -54,7 +54,7 @@
 
     @Section(title: "Verify with VoiceOver") {
         @ContentAndMedia {
-            With VoiceOver on, swipe right from the navigation title. The floating "Add new contact" should be your first stop, before the filter chips and contact list. Tap a follow-up contact; within the announcement, "Needs follow-up" is spoken right after the name, well before the role and conference details.
+            On a physical device with VoiceOver on, swipe right from the navigation title. The floating "Add new contact" should be your first stop, before the filter chips and contact list. Open a follow-up contact; within the announcement, "Needs follow-up" is spoken right after the name, well before the role and conference details. (In the Simulator, the Accessibility Inspector's element list shows the same order, with the add button ahead of the list.)
 
             The finished snapshot lives in `Steps/05-VoiceOver-Sequencing/Finished/`.
 

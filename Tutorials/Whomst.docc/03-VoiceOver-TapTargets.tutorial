@@ -67,7 +67,7 @@
 
     @Section(title: "Verify with VoiceOver") {
         @ContentAndMedia {
-            Run with VoiceOver and swipe through the list. Each row is now a single focus stop announced as a Button, the trait that drives "Double-tap to activate." Double-tapping navigates to the detail screen, just like the sighted tap does.
+            Inspect a row with the Accessibility Inspector: it's now a single element carrying the Button trait, the trait that drives VoiceOver's "Double-tap to activate." On a physical device with VoiceOver on, the row is one focus stop and double-tapping navigates to the detail screen, just like the sighted tap does.
 
 The row is now one element, but its label is still the default child concatenation, with the most important information ("Needs follow-up", "Favorited") buried at the end. That's what Step 4 addresses by composing an explicit `.accessibilityLabel`. For now, the *interaction* is fixed even if the announcement still needs work.
 

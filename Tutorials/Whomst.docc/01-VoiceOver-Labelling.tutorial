@@ -7,9 +7,9 @@
 
     @Section(title: "Open the starter project") {
         @ContentAndMedia {
-            Start from the `Steps/01-VoiceOver-Labelling/Starter/` snapshot. This is the original inaccessible app. Run it on a simulator or device with VoiceOver on (⌘ + Option + F5 in the simulator, or triple-click side button on a real device).
+            Start from the `Steps/01-VoiceOver-Labelling/Starter/` snapshot. This is the original inaccessible app. VoiceOver itself doesn't run in the iOS Simulator, so you have two ways to inspect what it would announce: open **Xcode → Open Developer Tool → Accessibility Inspector**, point it at your booted simulator, and hover each control to read its label; or run the app on a physical device with VoiceOver on (triple-click the side button) and swipe through it.
 
-            Tap around the contact list and detail screens with VoiceOver. Notice how every icon-only button falls back to its SF Symbol's built-in name: the star reads "Favorite", the floating plus "Add", the edit pencil "Compose", and the action row "Call", "Get Mail", "Link", and "Share". None of them say *who* or *what* they act on, and some ("Get Mail", "Link") don't even match what the button does, so users can't tell one row's star, or one contact's call button, from another's.
+            Either way, look at each icon-only button. Every one falls back to its SF Symbol's built-in name: the star reads "Favorite", the floating plus "Add", the edit pencil "Compose", and the action row "Call", "Get Mail", "Link", and "Share". None of them say *who* or *what* they act on, and some ("Get Mail", "Link") don't even match what the button does, so users can't tell one row's star, or one contact's call button, from another's.
 
             @Image(source: 01-starter-screenshot.png, alt: "The Whomst starter app's contact list, with avatars, names, roles, colored role tags, and an unlabelled star on each row.")
         }
@@ -22,9 +22,9 @@
             }
 
             @Step {
-                Build and run on an iPhone simulator. Enable VoiceOver via Simulator → Features → Toggle VoiceOver, or by pressing ⌘ + Option + F5.
+                Build and run on an iPhone simulator, then open **Xcode → Open Developer Tool → Accessibility Inspector** and choose your booted simulator from the target picker. Use the crosshair to hover a control and read the label VoiceOver would speak. (To hear VoiceOver for real, run on a physical device instead and enable it with a triple-click of the side button.)
 
-                @Image(source: 01-voiceover-on.png, alt: "The iOS Simulator with VoiceOver enabled, highlighting the favorite star icon.")
+                @Image(source: 01-voiceover-on.png, alt: "The Accessibility Inspector pointed at the iOS Simulator, reading the favorite star's built-in label.")
             }
         }
     }
@@ -92,7 +92,7 @@
 
     @Section(title: "Verify with VoiceOver") {
         @ContentAndMedia {
-            Run the app again with VoiceOver on. Sweep through the contact list and a detail screen.
+            Run the app again and re-inspect it with the Accessibility Inspector (or on a physical device with VoiceOver on). Sweep through the contact list and a detail screen.
 
             Every button should now announce a clear, action-oriented label that includes the relevant context (the contact name where applicable). Decorative icons are silent. You haven't fixed everything yet (the row still reads as five or six separate elements per contact), but every individual element is now intelligible.
 
