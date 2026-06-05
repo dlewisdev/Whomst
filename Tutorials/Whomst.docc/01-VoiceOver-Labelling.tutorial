@@ -7,7 +7,9 @@
 
     @Section(title: "Open the starter project") {
         @ContentAndMedia {
-            Start from the `Steps/01-VoiceOver-Labelling/Starter/` snapshot. This is the original inaccessible app. VoiceOver itself doesn't run in the iOS Simulator, so you have two ways to inspect what it would announce: open **Xcode → Open Developer Tool → Accessibility Inspector**, point it at your booted simulator, and hover each control to read its label; or run the app on a physical device with VoiceOver on (triple-click the side button) and swipe through it.
+            Start from the `Steps/01-VoiceOver-Labelling/Starter/` snapshot. This is the original inaccessible app. VoiceOver itself doesn't run in the iOS Simulator, so you have two ways to inspect what it would announce: open **Xcode → Open Developer Tool → Accessibility Inspector**, point it at your booted simulator, and hover each control to read its label; or run the app on a physical device with VoiceOver on and swipe through it.
+
+            To toggle VoiceOver quickly on a device, first set up the **Accessibility Shortcut**: go to Settings → Accessibility → Accessibility Shortcut (at the bottom) and check **VoiceOver**. Now triple-clicking the side button (the Home button on devices that have one) turns VoiceOver on and off. You can also just leave it on under Settings → Accessibility → VoiceOver, or ask Siri to "turn on VoiceOver."
 
             Either way, look at each icon-only button. Every one falls back to its SF Symbol's built-in name: the star reads "Favorite", the floating plus "Add", the edit pencil "Compose", and the action row "Call", "Get Mail", "Link", and "Share". None of them say *who* or *what* they act on, and some ("Get Mail", "Link") don't even match what the button does, so users can't tell one row's star, or one contact's call button, from another's.
 
@@ -22,7 +24,7 @@
             }
 
             @Step {
-                Build and run on an iPhone simulator, then open **Xcode → Open Developer Tool → Accessibility Inspector** and choose your booted simulator from the target picker. Use the crosshair to hover a control and read the label VoiceOver would speak. (To hear VoiceOver for real, run on a physical device instead and enable it with a triple-click of the side button.)
+                Build and run on an iPhone simulator, then open **Xcode → Open Developer Tool → Accessibility Inspector** and choose your booted simulator from the target picker. Use the crosshair to hover a control and read the label VoiceOver would speak. (To hear VoiceOver for real, run on a physical device with VoiceOver enabled, as described above.)
 
                 @Image(source: 01-voiceover-on.png, alt: "The Accessibility Inspector pointed at the iOS Simulator, reading the favorite star's built-in label.")
             }
