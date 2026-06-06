@@ -1,0 +1,90 @@
+@Tutorial(time: 20) {
+    @Intro(title: "VoiceOver: Grouping & Composed Labels") {
+        Step 3's `NavigationLink` already collapsed each contact row into a single accessibility element, one focus stop instead of seven or eight. But it reads as a raw run-on, stitched together from each child's label with no connecting words and no control over what's included or how it's phrased.
+
+        In this step you'll take control of *what* that merged element announces by composing an explicit, readable label, restore the favorite toggle as a custom action (it got absorbed when the row became one element), and apply grouping to the detail screen, where there's no `NavigationLink` doing it for you. (Getting the announcement *order* right comes next, in Step 5.)
+
+    }
+
+    @Section(title: "Compose the row's label") {
+        @ContentAndMedia {
+            When SwiftUI merges a view into one accessibility element, whether through a `NavigationLink` like Step 3's or the `.accessibilityElement(children: .combine)` modifier you'll use on the detail screen below, its label defaults to the concatenation of every visible child's label. That works, but the order and punctuation rarely sound right.
+
+            The `NavigationLink` from Step 3 gives the row the Button trait, but it doesn't reliably collapse the row's rich content into a single label. So set `.accessibilityElement(children: .ignore)` to make the row one element, then provide an explicit `.accessibilityLabel` composed in the order you want VoiceOver to speak it, keeping the most important information (name, follow-up status, favorite status) first. Without the `.ignore`, VoiceOver reads your composed label *and* still walks the child views underneath, announcing the row's contents twice.
+
+            @Video(source: 04-combine.mp4, alt: "Screen recording: VoiceOver focuses a whole contact row as a single element, the caption panel reading its composed accessibility label in one pass. Play to hear it.")
+        }
+
+        @Steps {
+            @Step {
+                Open `ContactRowView.swift`. Step 3's `NavigationLink` gave the row the Button trait, but the row's child views are still individually exposed and its label is just their default concatenation.
+
+                @Code(name: "ContactRowView.swift", file: 04-combine-before.swift)
+            }
+
+            @Step {
+                Add `.accessibilityElement(children: .ignore)` and `.accessibilityLabel(combinedLabel)` to the outer `HStack`, and define a `combinedLabel` computed property that assembles the announcement string in a deliberate order. The `.ignore` collapses the row to a single element so its children aren't announced alongside your label.
+
+                @Code(name: "ContactRowView.swift", file: 04-combine-after.swift, previousFile: 04-combine-before.swift)
+            }
+        }
+    }
+
+    @Section(title: "Expose the star as a custom action") {
+        @ContentAndMedia {
+            Merging the row folds the favorite button into the single element, so it's no longer separately focusable, but users still need a way to favorite a contact. The answer is `.accessibilityAction(named:)`. Custom actions appear in VoiceOver's rotor: the user swipes up or down to choose, then double-taps to invoke.
+
+            Also hide the visible favorite `Button` from accessibility with `.accessibilityHidden(true)` so its own "Favorite Edrice Adebayo" label isn't pulled into the row's composed announcement.
+
+            @Video(source: 04-custom-action.mp4, alt: "Screen recording: a contact row focused by VoiceOver, swiping through the rotor's Actions to hear the two custom-action choices, 'Favorite' and 'Unfavorite'. Play to see both options.")
+        }
+
+        @Steps {
+            @Step {
+                Mark the star `Button` as accessibility-hidden so it doesn't appear as a separate element.
+
+                @Code(name: "ContactRowView.swift", file: 04-hide-star.swift, previousFile: 04-hide-star-before.swift)
+            }
+
+            @Step {
+                Attach a custom accessibility action named "Favorite" or "Unfavorite" to the outer `HStack`. The action wraps `onToggleFavorite()` and inherits the contact context from the surrounding view.
+
+                @Code(name: "ContactRowView.swift", file: 04-add-action.swift, previousFile: 04-add-action-before.swift)
+            }
+        }
+    }
+
+    @Section(title: "Group the detail header and Met-at row") {
+        @ContentAndMedia {
+            The contact detail screen isn't wrapped in a `NavigationLink`, so nothing has merged its elements: the header (avatar, name, follow-up dot, role, company) is still five separate stops and the "Met at" section (icon, conference name, location, date) is four. This is where you reach for `.accessibilityElement(children: .combine)` explicitly: apply it, then add a composed `.accessibilityLabel` just like you did for the row.
+
+            On the header, also add `.accessibilityAddTraits(.isHeader)` so VoiceOver users can jump there with the "Headings" rotor.
+
+            @Video(source: 04-detail-grouping.mp4, alt: "Screen recording: a contact's detail screen with VoiceOver; the grouped header is focused as one element with the caption reading 'Dwyane Wade. GOAT. Wade Enterprises…', then the grouped Met-at section is read as a single element.")
+        }
+
+        @Steps {
+            @Step {
+                Apply the combine pattern to the detail header VStack and mark it as a header.
+
+                @Code(name: "ContactDetailView.swift", file: 04-header.swift, previousFile: 04-header-before.swift)
+            }
+
+            @Step {
+                Apply the same combine pattern to the Met-at section's `HStack`.
+
+                @Code(name: "ContactDetailView.swift", file: 04-metat.swift, previousFile: 04-metat-before.swift)
+            }
+        }
+    }
+
+    @Section(title: "Verify with VoiceOver") {
+        @ContentAndMedia {
+            Check a row in the Accessibility Inspector: it's now a single element whose label reads everything at once, with "Favorite"/"Unfavorite" listed under its custom actions. On a physical device with VoiceOver on, each row is one focus stop that announces it all in one pass: *"Edrice Adebayo. Secretary of Defense at Miami Heat. Met at Kaseya Center on Mar 14, 2025. Tags: Founder, Speaker. Needs follow-up. Favorited."* Double-tap to navigate to the detail; swipe up to find the "Unfavorite" custom action and double-tap to invoke it.
+
+            The finished snapshot lives in `Steps/04-VoiceOver-Grouping/Finished/`.
+
+            @Video(source: 04-verify.mp4, alt: "A contact row focused by VoiceOver with the caption panel reading the full composed announcement beginning 'Edrice Adebayo. Secretary of Defense at Miami Heat. Met at Kaseya Center…'. Play to hear it read in one pass and reveal the 'Unfavorite' custom action.")
+        }
+    }
+}

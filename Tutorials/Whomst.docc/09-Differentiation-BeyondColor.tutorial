@@ -1,0 +1,118 @@
+@Tutorial(time: 15) {
+    @Intro(title: "Differentiation Beyond Color") {
+        Three places in the starter rely on color alone to communicate meaning:
+
+        - The colorful **tag pills** (blue = Engineer, pink = Designer, purple = PM, etc.): to a user with deuteranopia, all three look the same muted greenish-brown.
+        - The **selected filter chip** uses a colored background fill, so for users with reduced color sensitivity, "selected" and "unselected" blur together.
+        - The tiny **red dot** marking contacts who need follow-up: a red-green color blind user sees the same dot, but the meaning is invisible.
+
+        In this final step you'll add shape, weight, and icon cues alongside color so the same information lands for everyone.
+
+        @Image(source: 09-intro.png, alt: "Two iPhone screenshots of the contact list side by side: on the left the starter using color only; on the right the same screen with shape and icon cues added, where tag pills carry SF Symbols, the selected filter chip shows a checkmark, and follow-up contacts show a bell icon.")
+    }
+
+    @Section(title: "Add a symbol to every tag category") {
+        @ContentAndMedia {
+            Each `TagCategory` enum case already has a `color`. Give it a `symbol` too, an SF Symbol that represents the role visually:
+
+            - Engineer → `hammer.fill`
+            - Designer → `paintpalette.fill`
+            - PM → `chart.bar.fill`
+            - Founder → `building.2.fill`
+            - Speaker → `mic.fill`
+            - Author → `book.fill`
+            - Indie → `person.fill`
+            - Open Source → `chevron.left.forwardslash.chevron.right`
+            - Looking to Collab → `handshake.fill`
+
+            Then update `TagPill` to render the symbol next to the text. Now even users who can't distinguish the colors can read the icon and the label. Mark the symbol as `.accessibilityHidden(true)` so VoiceOver doesn't double-announce, since the text label already conveys the meaning.
+
+            @Image(source: 09-tags.png, alt: "A row of nine tag pills, each showing both an SF Symbol and a text label on a colored capsule background.")
+        }
+
+        @Steps {
+            @Step {
+                In `Models/TagCategory.swift`, add a `symbol: String` computed property that returns the SF Symbol name for each case.
+
+                @Code(name: "TagCategory.swift", file: 09-symbol-property.swift, previousFile: 09-symbol-property-before.swift)
+            }
+
+            @Step {
+                Update `TagPill` to render the symbol next to the label.
+
+                @Code(name: "TagPill.swift", file: 09-tagpill.swift, previousFile: 09-tagpill-before.swift)
+            }
+
+            @Step {
+                Update the tag toggle in `AddEditContactView` to also use the symbol, since consistency matters.
+
+                @Code(name: "AddEditContactView.swift", file: 09-tagtoggle.swift, previousFile: 09-tagtoggle-before.swift)
+            }
+        }
+    }
+
+    @Section(title: "Make the selected filter chip distinguishable") {
+        @ContentAndMedia {
+            The starter relies entirely on a colored fill to indicate which filter is selected. Layer in three more cues that don't depend on color perception:
+
+            - A **stroke** around selected chips that's heavier than unselected
+            - **Bold weight** text on selected chips
+            - A **checkmark** SF Symbol prefix on selected chips
+            - A subtle **shadow** elevating selected chips
+
+            Also add the `.isSelected` accessibility trait so VoiceOver announces the state alongside the label.
+
+            @Image(source: 09-filter.png, alt: "Four filter chips: 'Follow-up' selected with a checkmark, bold text, stroke, and shadow; 'All', 'Favorites', and 'Recent' shown unselected with thin strokes.")
+        }
+
+        @Steps {
+            @Step {
+                Open `Views/Components/FilterChip.swift`.
+
+                @Code(name: "FilterChip.swift", file: 09-chip-before.swift)
+            }
+
+            @Step {
+                Add a `checkmark` symbol when selected, a stroke that thickens when selected, a shadow that appears when selected, and the `.isSelected` accessibility trait.
+
+                @Code(name: "FilterChip.swift", file: 09-chip-after.swift, previousFile: 09-chip-before.swift)
+            }
+        }
+    }
+
+    @Section(title: "Replace the red dot with a shape-bearing icon") {
+        @ContentAndMedia {
+            The 7-point red circle marking "needs follow-up" in each row, and the 10-point red dot in the detail header, both encode meaning purely through color. Replace them with `bell.badge.fill` rendered in orange with `.symbolRenderingMode(.hierarchical)`. Now the meaning is carried by an unmistakable bell-and-dot shape, and the orange color reinforces but doesn't carry the message alone.
+
+            VoiceOver users already get this information from the composed label string ("Needs follow-up") set in Step 4, so mark the icon as `.accessibilityHidden(true)`.
+
+            @Image(source: 09-followup.png, alt: "The follow-up–filtered contact list where each contact's small red dot is replaced by an orange bell.badge.fill icon next to the name.")
+        }
+
+        @Steps {
+            @Step {
+                In `ContactRowView.swift`, replace the `Circle().fill(.red).frame(width: 7, height: 7)` with `Image(systemName: "bell.badge.fill")`.
+
+                @Code(name: "ContactRowView.swift", file: 09-row-followup.swift, previousFile: 09-row-followup-before.swift)
+            }
+
+            @Step {
+                Do the same in `ContactDetailView.swift`'s header, but use `.font(.title3)` so the icon scales up to match the large title.
+
+                @Code(name: "ContactDetailView.swift", file: 09-detail-followup.swift, previousFile: 09-detail-followup-before.swift)
+            }
+        }
+    }
+
+    @Section(title: "Verify with color filters") {
+        @ContentAndMedia {
+            Open Settings → Accessibility → Display & Text Size → Color Filters and turn on Deuteranopia, then Protanopia, then Tritanopia, then Grayscale. The tag pills, filter chips, and follow-up indicator should all remain interpretable in every mode, because the shape and label cues do the work that color used to.
+
+            Also flip on Settings → Accessibility → Display & Text Size → Differentiate Without Color. Your app should look great with no additional changes, because you didn't gate any cue on the `differentiateWithoutColor` environment flag; instead you added shape/label cues unconditionally. That's the more inclusive default: users without explicit settings still benefit from the better design.
+
+            The finished snapshot lives in `Steps/09-Differentiation-BeyondColor/Finished/`. This is the same code as the root `Whomst/` project: the full accessible app you've been building toward.
+
+            @Image(source: 09-verify.png, alt: "The Whomst list screen with Grayscale color filter enabled, showing all UI elements remain distinguishable through shape and weight cues alone.")
+        }
+    }
+}

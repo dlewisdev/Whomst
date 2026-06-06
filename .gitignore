@@ -1,0 +1,11 @@
+# Local production notes
+Tutorials/IMAGE-SLOTS.md
+
+# macOS
+.DS_Store
+
+# Xcode per-user state
+**/xcuserdata/
+
+# Claude Code local settings
+.claude/settings.local.json

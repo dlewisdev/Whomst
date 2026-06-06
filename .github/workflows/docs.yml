@@ -1,0 +1,68 @@
+name: Publish DocC tutorial
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select latest Xcode
+        run: |
+          NEWEST_XCODE=$(ls -d /Applications/Xcode_*.app 2>/dev/null | sort -V | tail -1)
+          if [ -z "$NEWEST_XCODE" ]; then
+            NEWEST_XCODE=/Applications/Xcode.app
+          fi
+          echo "Using: $NEWEST_XCODE"
+          sudo xcode-select -s "$NEWEST_XCODE"
+          xcodebuild -version
+
+      - name: Build DocC archive
+        run: |
+          xcrun docc convert Tutorials/Whomst.docc \
+            --output-path _site \
+            --hosting-base-path Whomst \
+            --transform-for-static-hosting
+
+      - name: Add index redirect to tutorial table of contents
+        run: |
+          cat > _site/index.html <<'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <meta http-equiv="refresh" content="0; url=/Whomst/tutorials/whomst">
+            <title>Whomst Accessibility Workshop</title>
+          </head>
+          <body>
+            <p>Redirecting to the <a href="/Whomst/tutorials/whomst">Whomst Accessibility Workshop</a>…</p>
+          </body>
+          </html>
+          EOF
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

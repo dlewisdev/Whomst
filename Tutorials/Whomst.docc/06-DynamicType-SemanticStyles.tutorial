@@ -1,0 +1,84 @@
+@Tutorial(time: 15) {
+    @Intro(title: "Dynamic Type: Semantic Text Styles") {
+        Everywhere in the starter you'll see fonts like `.font(.system(size: 16, weight: .semibold))`. Those literal sizes don't scale with Dynamic Type; they're frozen at 16 points regardless of the user's preference. The user can drag the size slider all the way up and the text won't budge.
+
+        SwiftUI's semantic text styles (`.headline`, `.subheadline`, `.body`, `.caption`, etc.) scale automatically. Each style has a base size at the default Dynamic Type setting and a curve that grows it for larger sizes. Use them throughout your app and the OS does the right thing for free.
+
+        This is the foundation for the rest of the chapter: once the text actually responds to Dynamic Type, the layout problems that the next two steps fix (content overflowing at large sizes, fixed-size avatars and buttons that no longer fit) become visible and worth solving.
+
+    }
+
+    @Section(title: "Map your sizes to semantic styles") {
+        @ContentAndMedia {
+            Before you start replacing, build a quick mental mapping from numeric sizes to semantic equivalents:
+
+            | Visual role | Numeric (starter) | Semantic style |
+            |---|---|---|
+            | Screen title | 28pt bold | `.largeTitle.bold()` |
+            | Large icon | 22pt | `.title2` |
+            | Section accent | 18pt | `.title3` |
+            | Row name | 16pt semibold | `.headline` |
+            | Body text | 16pt | `.body` |
+            | Secondary text | 13–14pt | `.subheadline` |
+            | Tag / footnote | 12pt | `.caption` |
+            | Decorative meta | 10–11pt | `.caption2` |
+
+            Use Apple's [Typography in HIG](https://developer.apple.com/design/human-interface-guidelines/typography) as your authoritative reference. If you need a non-standard weight, use `.body.weight(.semibold)` rather than dropping back to `.system(size:)`.
+
+        }
+    }
+
+    @Section(title: "Sweep the row and detail views") {
+        @ContentAndMedia {
+            Search across the project for `.font(.system(`; every match is a target. Replace each one with the semantic style that matches the visual role, not just the number. The contact name is a `.headline` because it's the primary heading of a row, not because it happened to be 16 points.
+
+            @Image(source: 06-sweep.png, alt: "Xcode's Find Navigator showing matches for '.font(.system(' across multiple files in the project.")
+        }
+
+        @Steps {
+            @Step {
+                In `ContactRowView.swift`, replace the name's `.font(.system(size: 16, weight: .semibold))` with `.font(.headline)`, the role/company `.font(.system(size: 13))` with `.font(.subheadline)`, and the conference line's small fonts with `.caption` and `.caption2`.
+
+                @Code(name: "ContactRowView.swift", file: 06-row-fonts.swift, previousFile: 06-row-fonts-before.swift)
+            }
+
+            @Step {
+                In `ContactDetailView.swift`, replace the 28pt name with `.largeTitle.bold()`, the role/company with `.body` and `.body.weight(.semibold)`, and the section titles with `.caption.weight(.bold)`.
+
+                @Code(name: "ContactDetailView.swift", file: 06-detail-fonts.swift, previousFile: 06-detail-fonts-before.swift)
+            }
+        }
+    }
+
+    @Section(title: "Update the supporting components") {
+        @ContentAndMedia {
+            `TagPill`, `FilterChip`, and the tag toggles in `AddEditContactView` all use literal sizes too. Don't leave them as exceptions; semantic styles need to be used everywhere or the inconsistency will bite you when Dynamic Type scales just half your app.
+
+            @Image(source: 06-components.png, alt: "iPhone screenshots (the contact list, a contact's detail screen, and the New Contact form) showing the TagPill, FilterChip, and AddEditContactView tag toggles rendered with semantic font styles.")
+        }
+
+        @Steps {
+            @Step {
+                In `TagPill.swift`, replace `.font(.system(size: 12, weight: .semibold))` with `.font(.caption.weight(.semibold))`.
+
+                @Code(name: "TagPill.swift", file: 06-tagpill.swift, previousFile: 06-tagpill-before.swift)
+            }
+
+            @Step {
+                In `FilterChip.swift` and `AddEditContactView.swift` tag toggles, replace `.font(.system(size: 14, weight: .semibold))` and `.font(.system(size: 13, weight: .semibold))` with `.font(.subheadline.weight(.semibold))`.
+
+                @Code(name: "FilterChip.swift", file: 06-filterchip.swift, previousFile: 06-filterchip-before.swift)
+            }
+        }
+    }
+
+    @Section(title: "Verify across the Dynamic Type range") {
+        @ContentAndMedia {
+            Toggle through xSmall → default → AX5. Every piece of *text* now scales. You'll also see the side effect that motivates the next two steps: at the largest sizes the horizontal row layout starts to strain and the fixed-size avatar and add button look out of proportion. The next step fixes the layout, and the one after scales those visual elements to match.
+
+            The finished snapshot lives in `Steps/06-DynamicType-SemanticStyles/Finished/`.
+
+            @Video(source: 06-verify.mp4, alt: "Screen recording: dragging the Dynamic Type slider while all text scales consistently through the semantic styles, with no fixed-size text left behind.")
+        }
+    }
+}
